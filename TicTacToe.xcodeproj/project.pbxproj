@@ -12,8 +12,11 @@
 		2B1ED0C12109C96E00C89C9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B1ED0BF2109C96E00C89C9A /* Main.storyboard */; };
 		2B1ED0C32109C97000C89C9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B1ED0C22109C97000C89C9A /* Assets.xcassets */; };
 		2B1ED0C62109C97000C89C9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B1ED0C42109C97000C89C9A /* LaunchScreen.storyboard */; };
-		2B1ED0D12109C97000C89C9A /* TicTacToeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1ED0D02109C97000C89C9A /* TicTacToeTests.swift */; };
 		2B1ED0DC2109C97000C89C9A /* TicTacToeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1ED0DB2109C97000C89C9A /* TicTacToeUITests.swift */; };
+		2B1ED0EE2109CC3500C89C9A /* GameBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1ED0ED2109CC3500C89C9A /* GameBoard.swift */; };
+		2B1ED0F02109CD3B00C89C9A /* BrainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1ED0EF2109CD3B00C89C9A /* BrainTests.swift */; };
+		2B1ED0F2210A272900C89C9A /* Square.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1ED0F1210A272900C89C9A /* Square.swift */; };
+		2B1ED0F4210A2DFF00C89C9A /* Brain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1ED0F3210A2DFF00C89C9A /* Brain.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,11 +45,14 @@
 		2B1ED0C52109C97000C89C9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2B1ED0C72109C97000C89C9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B1ED0CC2109C97000C89C9A /* TicTacToeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TicTacToeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2B1ED0D02109C97000C89C9A /* TicTacToeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeTests.swift; sourceTree = "<group>"; };
 		2B1ED0D22109C97000C89C9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B1ED0D72109C97000C89C9A /* TicTacToeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TicTacToeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B1ED0DB2109C97000C89C9A /* TicTacToeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeUITests.swift; sourceTree = "<group>"; };
 		2B1ED0DD2109C97000C89C9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B1ED0ED2109CC3500C89C9A /* GameBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoard.swift; sourceTree = "<group>"; };
+		2B1ED0EF2109CD3B00C89C9A /* BrainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainTests.swift; sourceTree = "<group>"; };
+		2B1ED0F1210A272900C89C9A /* Square.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Square.swift; sourceTree = "<group>"; };
+		2B1ED0F3210A2DFF00C89C9A /* Brain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +103,15 @@
 		2B1ED0BA2109C96E00C89C9A /* TicTacToe */ = {
 			isa = PBXGroup;
 			children = (
+				2B1ED0F3210A2DFF00C89C9A /* Brain.swift */,
 				2B1ED0BB2109C96E00C89C9A /* AppDelegate.swift */,
 				2B1ED0BD2109C96E00C89C9A /* ViewController.swift */,
 				2B1ED0BF2109C96E00C89C9A /* Main.storyboard */,
 				2B1ED0C22109C97000C89C9A /* Assets.xcassets */,
 				2B1ED0C42109C97000C89C9A /* LaunchScreen.storyboard */,
 				2B1ED0C72109C97000C89C9A /* Info.plist */,
+				2B1ED0ED2109CC3500C89C9A /* GameBoard.swift */,
+				2B1ED0F1210A272900C89C9A /* Square.swift */,
 			);
 			path = TicTacToe;
 			sourceTree = "<group>";
@@ -110,8 +119,8 @@
 		2B1ED0CF2109C97000C89C9A /* TicTacToeTests */ = {
 			isa = PBXGroup;
 			children = (
-				2B1ED0D02109C97000C89C9A /* TicTacToeTests.swift */,
 				2B1ED0D22109C97000C89C9A /* Info.plist */,
+				2B1ED0EF2109CD3B00C89C9A /* BrainTests.swift */,
 			);
 			path = TicTacToeTests;
 			sourceTree = "<group>";
@@ -196,6 +205,7 @@
 					};
 					2B1ED0CB2109C97000C89C9A = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 0940;
 						TestTargetID = 2B1ED0B72109C96E00C89C9A;
 					};
 					2B1ED0D62109C97000C89C9A = {
@@ -257,7 +267,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B1ED0BE2109C96E00C89C9A /* ViewController.swift in Sources */,
+				2B1ED0EE2109CC3500C89C9A /* GameBoard.swift in Sources */,
 				2B1ED0BC2109C96E00C89C9A /* AppDelegate.swift in Sources */,
+				2B1ED0F4210A2DFF00C89C9A /* Brain.swift in Sources */,
+				2B1ED0F2210A272900C89C9A /* Square.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,7 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B1ED0D12109C97000C89C9A /* TicTacToeTests.swift in Sources */,
+				2B1ED0F02109CD3B00C89C9A /* BrainTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,6 +480,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4L75R28P26;
 				INFOPLIST_FILE = TicTacToeTests/Info.plist;
@@ -477,6 +491,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.JakeMobileDev.TicTacToeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TicTacToe.app/TicTacToe";
@@ -488,6 +503,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4L75R28P26;
 				INFOPLIST_FILE = TicTacToeTests/Info.plist;
