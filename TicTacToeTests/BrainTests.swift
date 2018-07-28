@@ -29,7 +29,7 @@ class BrainTests: XCTestCase {
         gameBoard.topLeft = .cross
         gameBoard.top = .cross
         gameBoard.topRight = .cross
-        let hasWon = brain.hasPlayerWon(board: gameBoard)
+        let hasWon = brain.hasPlayerWon(gameBoard: gameBoard)
         XCTAssertEqual(hasWon, true)
     }
     
@@ -37,7 +37,7 @@ class BrainTests: XCTestCase {
         gameBoard.left = .cross
         gameBoard.centre = .cross
         gameBoard.right = .cross
-        let hasWon = brain.hasPlayerWon(board: gameBoard)
+        let hasWon = brain.hasPlayerWon(gameBoard: gameBoard)
         XCTAssertEqual(hasWon, true)
     }
     
@@ -45,7 +45,7 @@ class BrainTests: XCTestCase {
         gameBoard.bottomLeft = .cross
         gameBoard.bottom = .cross
         gameBoard.bottomRight = .cross
-        let hasWon = brain.hasPlayerWon(board: gameBoard)
+        let hasWon = brain.hasPlayerWon(gameBoard: gameBoard)
         XCTAssertEqual(hasWon, true)
     }
     
@@ -53,7 +53,7 @@ class BrainTests: XCTestCase {
         gameBoard.topLeft = .cross
         gameBoard.left = .cross
         gameBoard.bottomLeft = .cross
-        let hasWon = brain.hasPlayerWon(board: gameBoard)
+        let hasWon = brain.hasPlayerWon(gameBoard: gameBoard)
         XCTAssertEqual(hasWon, true)
     }
     
@@ -61,7 +61,7 @@ class BrainTests: XCTestCase {
         gameBoard.top = .cross
         gameBoard.centre = .cross
         gameBoard.bottom = .cross
-        let hasWon = brain.hasPlayerWon(board: gameBoard)
+        let hasWon = brain.hasPlayerWon(gameBoard: gameBoard)
         XCTAssertEqual(hasWon, true)
     }
     
@@ -69,7 +69,7 @@ class BrainTests: XCTestCase {
         gameBoard.topRight = .cross
         gameBoard.right = .cross
         gameBoard.bottomRight = .cross
-        let hasWon = brain.hasPlayerWon(board: gameBoard)
+        let hasWon = brain.hasPlayerWon(gameBoard: gameBoard)
         XCTAssertEqual(hasWon, true)
     }
     
@@ -77,7 +77,7 @@ class BrainTests: XCTestCase {
         gameBoard.topLeft = .cross
         gameBoard.centre = .cross
         gameBoard.bottomRight = .cross
-        let hasWon = brain.hasPlayerWon(board: gameBoard)
+        let hasWon = brain.hasPlayerWon(gameBoard: gameBoard)
         XCTAssertEqual(hasWon, true)
     }
     
@@ -85,7 +85,7 @@ class BrainTests: XCTestCase {
         gameBoard.topRight = .cross
         gameBoard.centre = .cross
         gameBoard.bottomLeft = .cross
-        let hasWon = brain.hasPlayerWon(board: gameBoard)
+        let hasWon = brain.hasPlayerWon(gameBoard: gameBoard)
         XCTAssertEqual(hasWon, true)
     }
     
@@ -93,7 +93,7 @@ class BrainTests: XCTestCase {
         gameBoard.topLeft = .nought
         gameBoard.top = .nought
         gameBoard.topRight = .nought
-        let hasWon = brain.hasPlayerWon(board: gameBoard)
+        let hasWon = brain.hasPlayerWon(gameBoard: gameBoard)
         XCTAssertEqual(hasWon, true)
     }
     
@@ -101,7 +101,7 @@ class BrainTests: XCTestCase {
         gameBoard.left = .nought
         gameBoard.centre = .nought
         gameBoard.right = .nought
-        let hasWon = brain.hasPlayerWon(board: gameBoard)
+        let hasWon = brain.hasPlayerWon(gameBoard: gameBoard)
         XCTAssertEqual(hasWon, true)
     }
     
@@ -109,7 +109,7 @@ class BrainTests: XCTestCase {
         gameBoard.bottomLeft = .nought
         gameBoard.bottom = .nought
         gameBoard.bottomRight = .nought
-        let hasWon = brain.hasPlayerWon(board: gameBoard)
+        let hasWon = brain.hasPlayerWon(gameBoard: gameBoard)
         XCTAssertEqual(hasWon, true)
     }
     
@@ -117,7 +117,7 @@ class BrainTests: XCTestCase {
         gameBoard.topLeft = .nought
         gameBoard.left = .nought
         gameBoard.bottomLeft = .nought
-        let hasWon = brain.hasPlayerWon(board: gameBoard)
+        let hasWon = brain.hasPlayerWon(gameBoard: gameBoard)
         XCTAssertEqual(hasWon, true)
     }
     
@@ -125,7 +125,7 @@ class BrainTests: XCTestCase {
         gameBoard.top = .nought
         gameBoard.centre = .nought
         gameBoard.bottom = .nought
-        let hasWon = brain.hasPlayerWon(board: gameBoard)
+        let hasWon = brain.hasPlayerWon(gameBoard: gameBoard)
         XCTAssertEqual(hasWon, true)
     }
     
@@ -133,7 +133,7 @@ class BrainTests: XCTestCase {
         gameBoard.topRight = .nought
         gameBoard.right = .nought
         gameBoard.bottomRight = .nought
-        let hasWon = brain.hasPlayerWon(board: gameBoard)
+        let hasWon = brain.hasPlayerWon(gameBoard: gameBoard)
         XCTAssertEqual(hasWon, true)
     }
     
@@ -141,7 +141,7 @@ class BrainTests: XCTestCase {
         gameBoard.topLeft = .nought
         gameBoard.centre = .nought
         gameBoard.bottomRight = .nought
-        let hasWon = brain.hasPlayerWon(board: gameBoard)
+        let hasWon = brain.hasPlayerWon(gameBoard: gameBoard)
         XCTAssertEqual(hasWon, true)
     }
     
@@ -149,12 +149,12 @@ class BrainTests: XCTestCase {
         gameBoard.topRight = .nought
         gameBoard.centre = .nought
         gameBoard.bottomLeft = .nought
-        let hasWon = brain.hasPlayerWon(board: gameBoard)
+        let hasWon = brain.hasPlayerWon(gameBoard: gameBoard)
         XCTAssertEqual(hasWon, true)
     }
     
     func testEmptyNoWin() {
-        let hasWon = brain.hasPlayerWon(board: gameBoard)
+        let hasWon = brain.hasPlayerWon(gameBoard: gameBoard)
         XCTAssertEqual(hasWon, false)
     }
     
@@ -162,19 +162,19 @@ class BrainTests: XCTestCase {
         gameBoard.topRight = .nought
         gameBoard.right = .cross
         gameBoard.bottomRight = .nought
-        let hasWon = brain.hasPlayerWon(board: gameBoard)
+        let hasWon = brain.hasPlayerWon(gameBoard: gameBoard)
         XCTAssertEqual(hasWon, false)
     }
     
     func testTwoInRowNoWin() {
         gameBoard.topLeft = .cross
         gameBoard.left = .cross
-        let hasWon = brain.hasPlayerWon(board: gameBoard)
+        let hasWon = brain.hasPlayerWon(gameBoard: gameBoard)
         XCTAssertEqual(hasWon, false)
     }
     
     func testCheckMoveOnEmptyBoardIsValid() {
-        let validMove = brain.isMoveValid(board: gameBoard, move: Square.topLeft)
+        let validMove = brain.isMoveValid(gameBoard: gameBoard, move: Square.topLeft)
         XCTAssertEqual(validMove, true)
     }
     
@@ -182,13 +182,13 @@ class BrainTests: XCTestCase {
         gameBoard.bottom = .nought
         gameBoard.right = .cross
         gameBoard.bottomLeft = .nought
-        let validMove = brain.isMoveValid(board: gameBoard, move: Square.top)
+        let validMove = brain.isMoveValid(gameBoard: gameBoard, move: Square.top)
         XCTAssertEqual(validMove, true)
     }
     
     func testCheckForInvalidMove() {
         gameBoard.centre = .cross
-        let validMove = brain.isMoveValid(board: gameBoard, move: Square.centre)
+        let validMove = brain.isMoveValid(gameBoard: gameBoard, move: Square.centre)
         XCTAssertEqual(validMove, false)
     }
     

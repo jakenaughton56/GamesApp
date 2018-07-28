@@ -10,78 +10,78 @@ import Foundation
 
 class Brain {
     
-    func hasPlayerWon(board: GameBoard) -> Bool {
-        if board.topLeft == .cross && board.top == .cross && board.topRight == .cross {
+    func hasPlayerWon(gameBoard: GameBoard) -> Bool {
+        if gameBoard.topLeft == .cross && gameBoard.top == .cross && gameBoard.topRight == .cross {
             return true
         }
-        if board.left == .cross && board.centre == .cross && board.right == .cross {
+        if gameBoard.left == .cross && gameBoard.centre == .cross && gameBoard.right == .cross {
             return true
         }
-        if board.bottomLeft == .cross && board.bottom == .cross && board.bottomRight == .cross {
+        if gameBoard.bottomLeft == .cross && gameBoard.bottom == .cross && gameBoard.bottomRight == .cross {
             return true
         }
-        if board.topLeft == .cross && board.left == .cross && board.bottomLeft == .cross {
+        if gameBoard.topLeft == .cross && gameBoard.left == .cross && gameBoard.bottomLeft == .cross {
             return true
         }
-        if board.top == .cross && board.centre == .cross && board.bottom == .cross {
+        if gameBoard.top == .cross && gameBoard.centre == .cross && gameBoard.bottom == .cross {
             return true
         }
-        if board.topRight == .cross && board.right == .cross && board.bottomRight == .cross {
+        if gameBoard.topRight == .cross && gameBoard.right == .cross && gameBoard.bottomRight == .cross {
             return true
         }
-        if board.topLeft == .cross && board.centre == .cross && board.bottomRight == .cross {
+        if gameBoard.topLeft == .cross && gameBoard.centre == .cross && gameBoard.bottomRight == .cross {
             return true
         }
-        if board.topRight == .cross && board.centre == .cross && board.bottomLeft == .cross {
+        if gameBoard.topRight == .cross && gameBoard.centre == .cross && gameBoard.bottomLeft == .cross {
             return true
         }
-        if board.topLeft == .nought && board.top == .nought && board.topRight == .nought {
+        if gameBoard.topLeft == .nought && gameBoard.top == .nought && gameBoard.topRight == .nought {
             return true
         }
-        if board.left == .nought && board.centre == .nought && board.right == .nought {
+        if gameBoard.left == .nought && gameBoard.centre == .nought && gameBoard.right == .nought {
             return true
         }
-        if board.bottomLeft == .nought && board.bottom == .nought && board.bottomRight == .nought {
+        if gameBoard.bottomLeft == .nought && gameBoard.bottom == .nought && gameBoard.bottomRight == .nought {
             return true
         }
-        if board.topLeft == .nought && board.left == .nought && board.bottomLeft == .nought {
+        if gameBoard.topLeft == .nought && gameBoard.left == .nought && gameBoard.bottomLeft == .nought {
             return true
         }
-        if board.top == .nought && board.centre == .nought && board.bottom == .nought {
+        if gameBoard.top == .nought && gameBoard.centre == .nought && gameBoard.bottom == .nought {
             return true
         }
-        if board.topRight == .nought && board.right == .nought && board.bottomRight == .nought {
+        if gameBoard.topRight == .nought && gameBoard.right == .nought && gameBoard.bottomRight == .nought {
             return true
         }
-        if board.topLeft == .nought && board.centre == .nought && board.bottomRight == .nought {
+        if gameBoard.topLeft == .nought && gameBoard.centre == .nought && gameBoard.bottomRight == .nought {
             return true
         }
-        if board.topRight == .nought && board.centre == .nought && board.bottomLeft == .nought {
+        if gameBoard.topRight == .nought && gameBoard.centre == .nought && gameBoard.bottomLeft == .nought {
             return true
         }
         return false
     }
     
-    func isMoveValid(board: GameBoard, move: Square) -> Bool {
+    func isMoveValid(gameBoard: GameBoard, move: Square) -> Bool {
         switch move {
         case .topLeft:
-            return board.topLeft == .empty
+            return gameBoard.topLeft == .empty
         case .top:
-            return board.top == .empty
+            return gameBoard.top == .empty
         case .topRight:
-            return board.topRight == .empty
+            return gameBoard.topRight == .empty
         case .left:
-            return board.left == .empty
+            return gameBoard.left == .empty
         case .centre:
-            return board.centre == .empty
+            return gameBoard.centre == .empty
         case .right:
-            return board.right == .empty
+            return gameBoard.right == .empty
         case .bottomLeft:
-            return board.bottomLeft == .empty
+            return gameBoard.bottomLeft == .empty
         case .bottom:
-            return board.bottom == .empty
+            return gameBoard.bottom == .empty
         case .bottomRight:
-            return board.bottomRight == .empty
+            return gameBoard.bottomRight == .empty
         }
     }
     

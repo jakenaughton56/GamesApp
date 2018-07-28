@@ -30,3 +30,22 @@ struct GameBoard {
         bottomRight = .empty
     }
 }
+
+enum SquareType {
+    case cross
+    case nought
+    case empty
+}
+
+enum Square {
+    case topLeft
+    case top
+    case topRight
+    case left
+    case centre
+    case right
+    case bottomLeft
+    case bottom
+    case bottomRight
+}
+
