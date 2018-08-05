@@ -73,7 +73,7 @@ class GameViewController: UIViewController {
         case bottomRightButton:
             square = .bottomRight
         default:
-            print("Square does not exist")
+            print("Couldn't match square to button")
             return
         }
         guard let unwrappedGame = game else {
@@ -94,7 +94,7 @@ class GameViewController: UIViewController {
         case .gameBoardFull:
             drawOnSquare(square: square, button: sender, isItPlayerOnesTurn: isItPlayerOnesTurn)
             gameStateLabel.text = NSLocalizedString("Draw!", comment: "Game was drawn")
-        case .playerWon:
+        case .playerWins:
             drawOnSquare(square: square, button: sender, isItPlayerOnesTurn: isItPlayerOnesTurn)
             if isItPlayerOnesTurn {
                 gameStateLabel.text = NSLocalizedString("Player One Wins!", comment: "Player One Won the game")
@@ -104,13 +104,15 @@ class GameViewController: UIViewController {
         case .squareTaken:
             // Don't need to do anything
             break
+        case .playerAlreadyWon:
+            // Don't need to do anything
+            break
         case .error:
             print("Error With GameState")
         }
-            
     }
     
-    func drawOnSquare(square: Square, button: UIButton, isItPlayerOnesTurn: Bool) {
+    private func drawOnSquare(square: Square, button: UIButton, isItPlayerOnesTurn: Bool) {
         if isItPlayerOnesTurn {
             button.setImage(#imageLiteral(resourceName: "Cross"), for: .normal)
         } else {

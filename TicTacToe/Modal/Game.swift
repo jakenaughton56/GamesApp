@@ -31,8 +31,11 @@ class Game {
         } else {
             playerSquareType = .nought
         }
-        if(!brain.isMoveValid(gameBoard: gameBoard, move: move)) {
+        if !brain.isMoveValid(gameBoard: gameBoard, move: move) {
             return .squareTaken
+        }
+        if brain.hasPlayerWon(gameBoard: gameBoard) {
+            return .playerAlreadyWon
         }
         isItPlayerOnesTurn = !isItPlayerOnesTurn
         
@@ -56,10 +59,10 @@ class Game {
         case .bottomRight:
             gameBoard.bottomRight = playerSquareType
         }
-        if(brain.hasPlayerWon(gameBoard: gameBoard)) {
-            return .playerWon
+        if brain.hasPlayerWon(gameBoard: gameBoard) {
+            return .playerWins
         }
-        if(brain.isBoardFull(gameBoard: gameBoard)) {
+        if brain.isBoardFull(gameBoard: gameBoard) {
             return .gameBoardFull
         }
         return .nextMove

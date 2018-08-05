@@ -91,6 +91,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B0F11DA2117B0E7009F0540 /* Extras */ = {
+			isa = PBXGroup;
+			children = (
+				2B1ED0BB2109C96E00C89C9A /* AppDelegate.swift */,
+				2B1ED0C22109C97000C89C9A /* Assets.xcassets */,
+				2B1ED0C72109C97000C89C9A /* Info.plist */,
+				2B1ED0C42109C97000C89C9A /* LaunchScreen.storyboard */,
+			);
+			path = Extras;
+			sourceTree = "<group>";
+		};
+		2B0F11DB2117B11F009F0540 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				2B1ED0F9210AE61100C89C9A /* Game.swift */,
+				2B1ED0F3210A2DFF00C89C9A /* Brain.swift */,
+			);
+			path = Modal;
+			sourceTree = "<group>";
+		};
+		2B0F11DC2117B153009F0540 /* Structures */ = {
+			isa = PBXGroup;
+			children = (
+				2B1ED0F7210AE56400C89C9A /* Player.swift */,
+				2B1ED0ED2109CC3500C89C9A /* GameBoard.swift */,
+				2B1ED0FB210B06DF00C89C9A /* GameState.swift */,
+				2B1ED1122112A51300C89C9A /* Localizable.strings */,
+			);
+			path = Structures;
+			sourceTree = "<group>";
+		};
+		2B0F11DD2117B183009F0540 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2B1ED0BF2109C96E00C89C9A /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2B0F11DE2117B18C009F0540 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2B1ED0FD210C7CD500C89C9A /* GameViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		2B1ED0AF2109C96E00C89C9A = {
 			isa = PBXGroup;
 			children = (
@@ -114,18 +161,11 @@
 		2B1ED0BA2109C96E00C89C9A /* TicTacToe */ = {
 			isa = PBXGroup;
 			children = (
-				2B1ED0F7210AE56400C89C9A /* Player.swift */,
-				2B1ED0F3210A2DFF00C89C9A /* Brain.swift */,
-				2B1ED0BB2109C96E00C89C9A /* AppDelegate.swift */,
-				2B1ED0BF2109C96E00C89C9A /* Main.storyboard */,
-				2B1ED0FD210C7CD500C89C9A /* GameViewController.swift */,
-				2B1ED0C22109C97000C89C9A /* Assets.xcassets */,
-				2B1ED0C42109C97000C89C9A /* LaunchScreen.storyboard */,
-				2B1ED0C72109C97000C89C9A /* Info.plist */,
-				2B1ED0ED2109CC3500C89C9A /* GameBoard.swift */,
-				2B1ED0F9210AE61100C89C9A /* Game.swift */,
-				2B1ED1122112A51300C89C9A /* Localizable.strings */,
-				2B1ED0FB210B06DF00C89C9A /* GameState.swift */,
+				2B0F11DA2117B0E7009F0540 /* Extras */,
+				2B0F11DE2117B18C009F0540 /* Controller */,
+				2B0F11DD2117B183009F0540 /* View */,
+				2B0F11DB2117B11F009F0540 /* Modal */,
+				2B0F11DC2117B153009F0540 /* Structures */,
 			);
 			path = TicTacToe;
 			sourceTree = "<group>";
@@ -476,7 +516,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4L75R28P26;
-				INFOPLIST_FILE = TicTacToe/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/TicTacToe/Extras/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -494,7 +534,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4L75R28P26;
-				INFOPLIST_FILE = TicTacToe/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/TicTacToe/Extras/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

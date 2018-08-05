@@ -45,7 +45,7 @@ class GameViewControllerTests: XCTestCase {
         let _ = gameViewController.play(move: .top)
         let _ = gameViewController.play(move: .bottomLeft)
         let finalGameState = gameViewController.play(move: .topRight)
-        XCTAssert(finalGameState == .playerWon)
+        XCTAssert(finalGameState == .playerWins)
     }
     
     func testSquareIsTaken() {
@@ -65,6 +65,16 @@ class GameViewControllerTests: XCTestCase {
         let _ = gameViewController.play(move: .bottom)
         let finalGameState = gameViewController.play(move: .bottomRight)
         XCTAssert(finalGameState == .gameBoardFull)
+    }
+    
+    func testPlayMoveAfterWin() {
+        let _ = gameViewController.play(move: .topLeft)
+        let _ = gameViewController.play(move: .bottom)
+        let _ = gameViewController.play(move: .top)
+        let _ = gameViewController.play(move: .bottomLeft)
+        let _ = gameViewController.play(move: .topRight)
+        let _ = gameViewController.play(move: .bottomRight)
+        XCTAssert(gameViewController.game?.gameBoard.bottomRight == .empty)
     }
     
 }

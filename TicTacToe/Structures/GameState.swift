@@ -12,6 +12,7 @@ enum GameState {
     case gameBoardFull
     case nextMove
     case squareTaken
-    case playerWon
+    case playerWins
+    case playerAlreadyWon
     case error
 }
