@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  TicTacToe
+
+  Created by Jake Mobile Dev on 2/8/18.
+  Copyright © 2018 JakeMobileDev. All rights reserved.
+*/
+
+"Player One's Turn" = "Player One's Turn";
+"Player Two's Turn" = "Player Two's Turn";
+"New Game" = "New Game";
+"Back" = "Back";
+"Draw!" = "Draw!";
+"Player One Wins!";
+"Player Two Wins!";

@@ -27,9 +27,9 @@ class Game {
     func play(move: Square) -> GameState {
         let playerSquareType: SquareType
         if isItPlayerOnesTurn {
-            playerSquareType = .nought
-        } else {
             playerSquareType = .cross
+        } else {
+            playerSquareType = .nought
         }
         if(!brain.isMoveValid(gameBoard: gameBoard, move: move)) {
             return .squareTaken
@@ -63,5 +63,10 @@ class Game {
             return .gameBoardFull
         }
         return .nextMove
+    }
+    
+    func startNewGame() {
+        gameBoard = GameBoard()
+        isItPlayerOnesTurn = true
     }
 }

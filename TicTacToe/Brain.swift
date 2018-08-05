@@ -97,4 +97,13 @@ class Brain {
         }
         return true
     }
+    
+    func checkEmpty(gameBoard: GameBoard) -> Bool {
+        if gameBoard.topLeft != .empty || gameBoard.top != .empty || gameBoard.topRight != .empty || gameBoard.left != .empty || gameBoard.centre != .empty || gameBoard.right != .empty || gameBoard.bottomLeft != .empty || gameBoard.bottom != .empty || gameBoard.bottomRight != .empty {
+            return false
+        } else {
+            return true
+        }
+    }
+    
 }

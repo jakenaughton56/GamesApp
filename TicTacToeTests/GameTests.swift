@@ -11,6 +11,7 @@ import XCTest
 
 class GameTests: XCTestCase {
     
+    let brain = Brain()
     let humanGame = Game(player1: .human, player2: .human)
     
     override func setUp() {
@@ -21,6 +22,12 @@ class GameTests: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
+    }
+    
+    func testIsPlayerOnesTurnBooleanChanges() {
+        XCTAssertTrue(humanGame.isItPlayerOnesTurn)
+        let _ = humanGame.play(move: .topLeft)
+        XCTAssertFalse(humanGame.isItPlayerOnesTurn)
     }
     
     func testUpdatingBoardStateOnce() {
@@ -67,6 +74,17 @@ class GameTests: XCTestCase {
         XCTAssert(gameState == .playerWon)
     }
     
+    func testStartingNewGame() {
+        let _ = humanGame.play(move: .topLeft)
+        let _ = humanGame.play(move: .bottomLeft)
+        let _ = humanGame.play(move: .top)
+        XCTAssertFalse(humanGame.isItPlayerOnesTurn)
+        XCTAssertFalse(brain.checkEmpty(gameBoard: humanGame.gameBoard))
+        humanGame.startNewGame()
+        XCTAssertTrue(humanGame.isItPlayerOnesTurn)
+        XCTAssertTrue(brain.checkEmpty(gameBoard: humanGame.gameBoard))
+    }
+    
     func moveSevenTimes() {
         let _ = humanGame.play(move: .centre)
         let _ = humanGame.play(move: .topLeft)
@@ -76,5 +94,7 @@ class GameTests: XCTestCase {
         let _ = humanGame.play(move: .topRight)
         let _ = humanGame.play(move: .right)
     }
+    
+
     
 }
