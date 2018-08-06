@@ -8,6 +8,11 @@
 
 import Foundation
 
+enum Player {
+    case playerOne
+    case playerTwo
+}
+
 enum PlayerType {
     case human
     case computer

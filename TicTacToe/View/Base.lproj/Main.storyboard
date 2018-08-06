@@ -27,21 +27,21 @@
                                         <rect key="frame" x="0.0" y="0.0" width="275" height="275"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8xc-It-P23" userLabel="Top Left Square">
-                                        <rect key="frame" x="0.0" y="0.0" width="85.5" height="85.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="85.5" height="85"/>
                                         <accessibility key="accessibilityConfiguration" identifier="topLeft"/>
                                         <connections>
                                             <action selector="squareTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EoS-JO-CIw"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fw3-B1-ama" userLabel="Top Square">
-                                        <rect key="frame" x="95" y="0.0" width="85" height="85.5"/>
+                                        <rect key="frame" x="94.5" y="0.0" width="86" height="85"/>
                                         <accessibility key="accessibilityConfiguration" identifier="top"/>
                                         <connections>
                                             <action selector="squareTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rMg-7c-GJ8"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QeU-Zf-oig" userLabel="Top Right Square">
-                                        <rect key="frame" x="190.5" y="0.0" width="85" height="85.5"/>
+                                        <rect key="frame" x="189.5" y="0.0" width="86" height="85"/>
                                         <accessibility key="accessibilityConfiguration" identifier="topRight"/>
                                         <state key="normal">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -51,49 +51,49 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FLU-a7-bS0" userLabel="Left Square">
-                                        <rect key="frame" x="0.0" y="95" width="85.5" height="85"/>
+                                        <rect key="frame" x="0.0" y="94.5" width="85.5" height="85"/>
                                         <accessibility key="accessibilityConfiguration" identifier="left"/>
                                         <connections>
                                             <action selector="squareTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lpc-oA-IA0"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tzK-Eh-Vpk" userLabel="Centre Square">
-                                        <rect key="frame" x="95" y="95" width="85" height="85"/>
+                                        <rect key="frame" x="94.5" y="94.5" width="86" height="85"/>
                                         <accessibility key="accessibilityConfiguration" identifier="centre"/>
                                         <connections>
                                             <action selector="squareTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DaE-wx-smC"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r09-VN-bd1" userLabel="Right Square">
-                                        <rect key="frame" x="189.5" y="95" width="85.5" height="85"/>
+                                        <rect key="frame" x="189.5" y="94.5" width="85.5" height="85"/>
                                         <accessibility key="accessibilityConfiguration" identifier="right"/>
                                         <connections>
                                             <action selector="squareTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="abf-Gq-ypq"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FGK-8G-dNR" userLabel="Bottom Left Square">
-                                        <rect key="frame" x="0.0" y="190.5" width="85.5" height="84.5"/>
+                                        <rect key="frame" x="0.0" y="190" width="85.5" height="85"/>
                                         <accessibility key="accessibilityConfiguration" identifier="bottomLeft"/>
                                         <connections>
                                             <action selector="squareTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uoG-12-SXg"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hUj-jE-NWe" userLabel="Bottom Square">
-                                        <rect key="frame" x="95" y="190.5" width="85" height="84.5"/>
+                                        <rect key="frame" x="94.5" y="190" width="86" height="85"/>
                                         <accessibility key="accessibilityConfiguration" identifier="bottom"/>
                                         <connections>
                                             <action selector="squareTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IUl-gL-8g1"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e78-RT-rj2" userLabel="Bottom Right Square">
-                                        <rect key="frame" x="189.5" y="190.5" width="85.5" height="84.5"/>
+                                        <rect key="frame" x="189.5" y="190" width="85.5" height="85"/>
                                         <accessibility key="accessibilityConfiguration" identifier="bottomRight"/>
                                         <connections>
                                             <action selector="squareTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8ji-Bz-xOe"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="fw3-B1-ama" firstAttribute="centerX" secondItem="3rr-bo-xDR" secondAttribute="centerX" id="0Ln-jB-2gh"/>
                                     <constraint firstItem="7ru-b2-Zqa" firstAttribute="centerX" secondItem="3rr-bo-xDR" secondAttribute="centerX" id="0wB-YD-TxZ"/>
@@ -141,28 +141,32 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cm4-Cv-gNO" userLabel="Bottom Menu">
                                 <rect key="frame" x="50" y="486" width="275" height="179"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player One's Turn" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Teg-ii-RyH">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player One's Turn" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Teg-ii-RyH" userLabel="Game State Label">
                                         <rect key="frame" x="0.0" y="0.0" width="275" height="57.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.0" green="0.67843137254901964" blue="0.70980392156862748" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PWk-ib-Bmc" userLabel="New Game">
-                                        <rect key="frame" x="0.0" y="61" width="275" height="57"/>
+                                        <rect key="frame" x="0.0" y="60.5" width="275" height="57.5"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="newGame"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="New Game">
-                                            <color key="titleColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" red="1" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="newGameTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XpT-Wn-pud"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9xV-Bq-eGV" userLabel="Back">
-                                        <rect key="frame" x="0.0" y="122" width="275" height="57"/>
+                                        <rect key="frame" x="0.0" y="121.5" width="275" height="57.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Back">
-                                            <color key="titleColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" red="1" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="9xV-Bq-eGV" secondAttribute="bottom" id="Cd9-jO-Kuk"/>
                                     <constraint firstItem="Teg-ii-RyH" firstAttribute="leading" secondItem="cm4-Cv-gNO" secondAttribute="leading" id="E95-o5-Jba"/>
@@ -178,15 +182,67 @@
                                     <constraint firstItem="9xV-Bq-eGV" firstAttribute="centerX" secondItem="cm4-Cv-gNO" secondAttribute="centerX" id="vaK-qC-0VX"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sEy-Ip-dpX" userLabel="Score Card">
+                                <rect key="frame" x="20" y="35" width="335" height="156"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player One" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z9G-NV-V5S" userLabel="Player One Title">
+                                        <rect key="frame" x="10" y="5" width="150.5" height="20.5"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="playerOneTitle"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="0.3411764705882353" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kLA-yh-fDj" userLabel="Player One Score">
+                                        <rect key="frame" x="10" y="45.5" width="150.5" height="20.5"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="playerOneScore"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.67843137249999996" blue="0.70980392160000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player Two" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TFF-u9-aAT" userLabel="Player Two Title">
+                                        <rect key="frame" x="174.5" y="5" width="150.5" height="20.5"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="playerTwoTitle"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sLg-bA-x5H" userLabel="Player Two Score">
+                                        <rect key="frame" x="174.5" y="45.5" width="150.5" height="20.5"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="playerTwoScore"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.67843137249999996" blue="0.70980392160000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="z9G-NV-V5S" firstAttribute="leading" secondItem="sEy-Ip-dpX" secondAttribute="leading" constant="10" id="1ab-zI-UV7"/>
+                                    <constraint firstItem="sLg-bA-x5H" firstAttribute="width" secondItem="z9G-NV-V5S" secondAttribute="width" id="2Hb-0x-Nxn"/>
+                                    <constraint firstItem="sLg-bA-x5H" firstAttribute="top" secondItem="TFF-u9-aAT" secondAttribute="bottom" constant="20" id="Azs-DZ-Ifg"/>
+                                    <constraint firstItem="TFF-u9-aAT" firstAttribute="top" secondItem="sEy-Ip-dpX" secondAttribute="top" constant="5" id="D2q-kb-hGX"/>
+                                    <constraint firstItem="z9G-NV-V5S" firstAttribute="width" secondItem="sEy-Ip-dpX" secondAttribute="width" multiplier="0.45" id="F2g-83-OoR"/>
+                                    <constraint firstAttribute="trailing" secondItem="sLg-bA-x5H" secondAttribute="trailing" constant="10" id="KB3-jE-cKm"/>
+                                    <constraint firstItem="kLA-yh-fDj" firstAttribute="top" secondItem="z9G-NV-V5S" secondAttribute="bottom" constant="20" id="LqA-tD-17d"/>
+                                    <constraint firstItem="TFF-u9-aAT" firstAttribute="width" secondItem="z9G-NV-V5S" secondAttribute="width" id="TpO-hQ-E5N"/>
+                                    <constraint firstAttribute="trailing" secondItem="TFF-u9-aAT" secondAttribute="trailing" constant="10" id="ddy-Vk-fUM"/>
+                                    <constraint firstItem="kLA-yh-fDj" firstAttribute="width" secondItem="z9G-NV-V5S" secondAttribute="width" id="eWl-8z-bpu"/>
+                                    <constraint firstItem="kLA-yh-fDj" firstAttribute="leading" secondItem="sEy-Ip-dpX" secondAttribute="leading" constant="10" id="hH9-lF-Gfy"/>
+                                    <constraint firstItem="z9G-NV-V5S" firstAttribute="top" secondItem="sEy-Ip-dpX" secondAttribute="top" constant="5" id="qOD-7a-SfT"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="cm4-Cv-gNO" firstAttribute="top" secondItem="3rr-bo-xDR" secondAttribute="bottom" constant="5" id="1iN-eN-7gY"/>
+                            <constraint firstItem="sEy-Ip-dpX" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="3FO-4j-63g"/>
+                            <constraint firstItem="sEy-Ip-dpX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="KY5-nn-4NW"/>
                             <constraint firstItem="3rr-bo-xDR" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="WDa-CE-RrZ"/>
                             <constraint firstItem="cm4-Cv-gNO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="aK3-G0-kjD"/>
                             <constraint firstItem="3rr-bo-xDR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="bCr-yA-Dar"/>
                             <constraint firstItem="cm4-Cv-gNO" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="c7f-oT-wA7"/>
+                            <constraint firstItem="sEy-Ip-dpX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="eL7-e3-ZEg"/>
                             <constraint firstItem="3rr-bo-xDR" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="faa-rE-CMp"/>
+                            <constraint firstItem="3rr-bo-xDR" firstAttribute="top" secondItem="sEy-Ip-dpX" secondAttribute="bottom" constant="15" id="gGh-Hh-ayo"/>
                             <constraint firstItem="cm4-Cv-gNO" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-2" id="yh9-fR-AQ0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -199,7 +255,11 @@
                         <outlet property="centreButton" destination="tzK-Eh-Vpk" id="tNd-SK-wjX"/>
                         <outlet property="gameStateLabel" destination="Teg-ii-RyH" id="J0Z-JG-O9E"/>
                         <outlet property="leftButton" destination="FLU-a7-bS0" id="Eoq-5X-DS0"/>
-                        <outlet property="newGameButton" destination="PWk-ib-Bmc" id="PEI-KT-4Je"/>
+                        <outlet property="newGameButton" destination="PWk-ib-Bmc" id="TwE-IT-uIE"/>
+                        <outlet property="playerOneScoreLabel" destination="kLA-yh-fDj" id="rle-vY-Ui1"/>
+                        <outlet property="playerOneTitleLabel" destination="z9G-NV-V5S" id="BYD-oM-dyJ"/>
+                        <outlet property="playerTwoScoreLabel" destination="sLg-bA-x5H" id="7nU-ms-4wT"/>
+                        <outlet property="playerTwoTitleLabel" destination="TFF-u9-aAT" id="bjy-4Z-5dU"/>
                         <outlet property="rightButton" destination="r09-VN-bd1" id="fbZ-qu-blc"/>
                         <outlet property="topButton" destination="fw3-B1-ama" id="SmG-lW-t2O"/>
                         <outlet property="topLeftButton" destination="8xc-It-P23" id="e9d-Np-GVY"/>
@@ -208,7 +268,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="135.19999999999999" y="120.44334975369459"/>
+            <point key="canvasLocation" x="133.59999999999999" y="119.1904047976012"/>
         </scene>
     </scenes>
     <resources>

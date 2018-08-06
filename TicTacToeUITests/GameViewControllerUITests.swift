@@ -33,6 +33,10 @@ class GameViewControllerUITests: XCTestCase {
         XCTAssertTrue(app.staticTexts[localized("Player One's Turn")].exists)
         XCTAssertTrue(app.buttons[localized("New Game")].exists)
         XCTAssertTrue(app.buttons[localized("Back")].exists)
+        XCTAssertTrue(app.staticTexts[localized("Player One")].exists)
+        XCTAssertTrue(app.staticTexts[localized("Player Two")].exists)
+        XCTAssertTrue(app.staticTexts["playerOneScore"].label == "0")
+        XCTAssertTrue(app.staticTexts["playerTwoScore"].label == "0")
     }
     
     func testPlayingFirstMove() {
@@ -85,11 +89,7 @@ class GameViewControllerUITests: XCTestCase {
     
     func testPlayerOneWinStraight() {
         let app = XCUIApplication()
-        app.buttons["topLeft"].tap()
-        app.buttons["top"].tap()
-        app.buttons["left"].tap()
-        app.buttons["centre"].tap()
-        app.buttons["bottomLeft"].tap()
+        straightWinForPlayerOne(app: app)
         XCTAssertTrue(app.staticTexts[localized("Player One Wins!")].exists)
     }
     
@@ -105,12 +105,7 @@ class GameViewControllerUITests: XCTestCase {
     
     func testPlayerTwoWinStraight() {
         let app = XCUIApplication()
-        app.buttons["topLeft"].tap()
-        app.buttons["top"].tap()
-        app.buttons["left"].tap()
-        app.buttons["centre"].tap()
-        app.buttons["topRight"].tap()
-        app.buttons["bottom"].tap()
+        straightWinForPlayerTwo(app: app)
         XCTAssertTrue(app.staticTexts[localized("Player Two Wins!")].exists)
     }
     
@@ -123,11 +118,65 @@ class GameViewControllerUITests: XCTestCase {
         app.buttons["bottomRight"].tap()
         app.buttons["bottomLeft"].tap()
         XCTAssertTrue(app.staticTexts[localized("Player Two Wins!")].exists)
-
     }
     
-    func localized(_ key: String) -> String {
+    func testStartingNewGame() {
+        let app = XCUIApplication()
+        app.buttons["topLeft"].tap()
+        app.buttons["bottom"].tap()
+        app.buttons["right"].tap()
+        app.buttons["newGame"].tap()
+        XCTAssertTrue(app.staticTexts[localized("Player One's Turn")].exists)
+    }
+    
+    func testPlayerOneIncreaseScore() {
+        let app = XCUIApplication()
+        straightWinForPlayerOne(app: app)
+        XCTAssertTrue(app.staticTexts["playerOneScore"].label == "1")
+    }
+    
+    func testPlayerOneIncreaseScoreTwice() {
+        let app = XCUIApplication()
+        straightWinForPlayerOne(app: app)
+        app.buttons["newGame"].tap()
+        straightWinForPlayerOne(app: app)
+        XCTAssertTrue(app.staticTexts["playerOneScore"].label == "2")
+    }
+    
+    func testPlayerTwoIncreaseScore() {
+        let app = XCUIApplication()
+        straightWinForPlayerTwo(app: app)
+        XCTAssertTrue(app.staticTexts["playerTwoScore"].label == "1")
+    }
+    
+    func testPlayerTwoIncreaseScoreTwice() {
+        let app = XCUIApplication()
+        straightWinForPlayerTwo(app: app)
+        app.buttons["newGame"].tap()
+        straightWinForPlayerTwo(app: app)
+        XCTAssertTrue(app.staticTexts["playerTwoScore"].label == "2")
+        
+    }
+    
+    private func localized(_ key: String) -> String {
         let uiTestBundle = Bundle(for: GameViewControllerUITests.self)
         return NSLocalizedString(key, bundle: uiTestBundle, comment: "")
+    }
+    
+    private func straightWinForPlayerOne(app: XCUIApplication) {
+        app.buttons["topLeft"].tap()
+        app.buttons["top"].tap()
+        app.buttons["left"].tap()
+        app.buttons["centre"].tap()
+        app.buttons["bottomLeft"].tap()
+    }
+    
+    private func straightWinForPlayerTwo(app: XCUIApplication) {
+        app.buttons["topLeft"].tap()
+        app.buttons["top"].tap()
+        app.buttons["left"].tap()
+        app.buttons["centre"].tap()
+        app.buttons["topRight"].tap()
+        app.buttons["bottom"].tap()
     }
 }

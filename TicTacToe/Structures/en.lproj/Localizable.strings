@@ -11,5 +11,7 @@
 "New Game" = "New Game";
 "Back" = "Back";
 "Draw!" = "Draw!";
-"Player One Wins!";
-"Player Two Wins!";
+"Player One Wins!" = "Player One Wins!";
+"Player Two Wins!" = "Player Two Wins!";
+"Player One" = "Player One";
+"Player Two" = "Player Two";
