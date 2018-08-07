@@ -16,7 +16,7 @@ class GameViewControllerTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let storyboard = UIStoryboard(name: "Game", bundle: Bundle.main)
         gameViewController = storyboard.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
         UIApplication.shared.keyWindow!.rootViewController = gameViewController
         

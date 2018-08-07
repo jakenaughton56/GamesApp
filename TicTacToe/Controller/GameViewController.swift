@@ -30,6 +30,7 @@ class GameViewController: UIViewController {
     }
     
     var game: Game?
+    var gameMode: GameMode?
     
     @IBOutlet weak var playerOneTitleLabel: UILabel!
     @IBOutlet weak var playerOneScoreLabel: UILabel!
@@ -53,7 +54,7 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         game = Game(player1: .human, player2: .human)
-        localizeControllerStrings()
+        localizeStrings()
         setInitialScores()
     }
     
@@ -62,7 +63,7 @@ class GameViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    private func localizeControllerStrings() {
+    private func localizeStrings() {
         newGameButton.setTitle(NSLocalizedString("New Game", comment: "Start a new game"), for: .normal)
         backButton.setTitle(NSLocalizedString("Back", comment: "Go back to main menu"), for: .normal)
         gameStateLabel.text = NSLocalizedString("Player One's Turn", comment: "Player Ones turn to move")
@@ -128,19 +129,37 @@ class GameViewController: UIViewController {
                 updateScore(player: .playerTwo)
             }
         case .squareTaken:
-            // Don't need to do anything
-            break
+            break // Don't need to do anything
         case .playerAlreadyWon:
-            // Don't need to do anything
-            break
+            break // Don't need to do anything
         case .error:
             print("Error With GameState")
+            return
+        }
+        
+        guard let unwrappedGameMode = gameMode else {
+            print("Game Mode was never intialised")
+            return
+        }
+        switch unwrappedGameMode {
+        case .humanVsHuman:
+            break // Don't need to do anything
+        case .easy:
+            break // Need to fill in
+        case .medium:
+            break // Need to fill in
+        case .hard:
+            break // Need to fill in
         }
     }
     
-    @IBAction func newGameTapped(_ sender: UIButton) {
+    @IBAction func newGameTapped() {
         newGame()
         gameStateLabel.text = NSLocalizedString("Player One's Turn", comment: "Player One's turn to move")
+    }
+    
+    @IBAction func backButtonTapped() {
+        self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
     }
     
     func play(move: Square) -> GameState {

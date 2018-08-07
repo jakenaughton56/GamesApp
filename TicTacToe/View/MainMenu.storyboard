@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3ma-Je-Phg">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main Menu View Controller-->
+        <scene sceneID="gxA-nW-VQj">
+            <objects>
+                <viewController id="Cy2-ct-kvz" customClass="MainMenuViewController" customModule="TicTacToe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nwi-sH-uwI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bjv-v6-vP2" userLabel="Title">
+                                <rect key="frame" x="10" y="74" width="394" height="80"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tic Tac Toe" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Glz-Qp-E61" userLabel="Title">
+                                        <rect key="frame" x="10" y="10" width="374" height="60"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="mainMenuTitle"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                        <color key="textColor" red="0.0" green="0.67843137249999996" blue="0.70980392160000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Glz-Qp-E61" firstAttribute="top" secondItem="Bjv-v6-vP2" secondAttribute="top" constant="10" id="1Ft-pE-puN"/>
+                                    <constraint firstItem="Glz-Qp-E61" firstAttribute="leading" secondItem="Bjv-v6-vP2" secondAttribute="leading" constant="10" id="Y0y-Kl-buy"/>
+                                    <constraint firstItem="Glz-Qp-E61" firstAttribute="centerY" secondItem="Bjv-v6-vP2" secondAttribute="centerY" id="Ypv-YL-8fn"/>
+                                    <constraint firstItem="Glz-Qp-E61" firstAttribute="centerX" secondItem="Bjv-v6-vP2" secondAttribute="centerX" id="x5S-hY-rn1"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jgZ-2b-lwS" userLabel="Menu">
+                                <rect key="frame" x="10" y="164" width="394" height="472"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ae-PY-lTV" userLabel="Start Game">
+                                        <rect key="frame" x="50" y="19.999999999999993" width="294" height="94.333333333333314"/>
+                                        <color key="backgroundColor" red="0.18823529411764706" green="0.2196078431372549" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="startGame"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <state key="normal" title="Start Game">
+                                            <color key="titleColor" red="1" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="dQP-Ev-2UY" kind="show" id="UEX-mQ-1Mn"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="0ae-PY-lTV" firstAttribute="leading" secondItem="jgZ-2b-lwS" secondAttribute="leading" constant="50" id="JBN-oP-ldU"/>
+                                    <constraint firstItem="0ae-PY-lTV" firstAttribute="top" secondItem="jgZ-2b-lwS" secondAttribute="top" constant="20" id="eaO-mf-TB4"/>
+                                    <constraint firstItem="0ae-PY-lTV" firstAttribute="centerX" secondItem="jgZ-2b-lwS" secondAttribute="centerX" id="tUu-EO-gGp"/>
+                                    <constraint firstItem="0ae-PY-lTV" firstAttribute="height" secondItem="jgZ-2b-lwS" secondAttribute="height" multiplier="0.2" id="z0P-qX-nfP"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="1jY-0L-bBW" firstAttribute="bottom" secondItem="jgZ-2b-lwS" secondAttribute="bottom" constant="100" id="0C5-9M-Z1h"/>
+                            <constraint firstItem="jgZ-2b-lwS" firstAttribute="centerX" secondItem="1jY-0L-bBW" secondAttribute="centerX" id="DT0-0z-rJM"/>
+                            <constraint firstItem="Bjv-v6-vP2" firstAttribute="leading" secondItem="1jY-0L-bBW" secondAttribute="leading" constant="10" id="Pxh-h3-Tew"/>
+                            <constraint firstItem="Bjv-v6-vP2" firstAttribute="top" secondItem="1jY-0L-bBW" secondAttribute="top" constant="10" id="UcV-aI-j8y"/>
+                            <constraint firstItem="Bjv-v6-vP2" firstAttribute="centerX" secondItem="1jY-0L-bBW" secondAttribute="centerX" id="a3U-VI-97u"/>
+                            <constraint firstItem="jgZ-2b-lwS" firstAttribute="leading" secondItem="1jY-0L-bBW" secondAttribute="leading" constant="10" id="o1J-qb-acY"/>
+                            <constraint firstItem="jgZ-2b-lwS" firstAttribute="centerY" secondItem="1jY-0L-bBW" secondAttribute="centerY" id="tA1-Ws-lz9"/>
+                            <constraint firstItem="jgZ-2b-lwS" firstAttribute="top" secondItem="Bjv-v6-vP2" secondAttribute="bottom" constant="10" id="ygd-gL-cf3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1jY-0L-bBW"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Yzg-CV-Jvf"/>
+                    <connections>
+                        <outlet property="menuTitleLabel" destination="Glz-Qp-E61" id="DtB-U9-i1X"/>
+                        <outlet property="startGameButton" destination="0ae-PY-lTV" id="Pm1-12-1cV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pz2-sh-scx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="743.47826086956525" y="-71.739130434782609"/>
+        </scene>
+        <!--Game Mode Menu View Controller-->
+        <scene sceneID="4ck-fr-ZZS">
+            <objects>
+                <viewController id="dQP-Ev-2UY" customClass="GameModeMenuViewController" customModule="TicTacToe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eJ2-UK-fex">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TEp-eg-ZJb" userLabel="Title">
+                                <rect key="frame" x="10" y="74" width="394" height="80"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Mode" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zSy-Sx-sEv" userLabel="Title">
+                                        <rect key="frame" x="10" y="10" width="374" height="60"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="gameModeMenuTitle"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                        <color key="textColor" red="0.0" green="0.67843137249999996" blue="0.70980392160000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="zSy-Sx-sEv" firstAttribute="leading" secondItem="TEp-eg-ZJb" secondAttribute="leading" constant="10" id="Bor-aE-sxh"/>
+                                    <constraint firstItem="zSy-Sx-sEv" firstAttribute="centerX" secondItem="TEp-eg-ZJb" secondAttribute="centerX" id="kKr-nR-rm4"/>
+                                    <constraint firstItem="zSy-Sx-sEv" firstAttribute="top" secondItem="TEp-eg-ZJb" secondAttribute="top" constant="10" id="qbR-u6-Hae"/>
+                                    <constraint firstItem="zSy-Sx-sEv" firstAttribute="centerY" secondItem="TEp-eg-ZJb" secondAttribute="centerY" id="xUI-hr-gO8"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ESu-wG-spf" userLabel="Menu">
+                                <rect key="frame" x="10" y="164" width="394" height="472"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DuN-gB-wan" userLabel="Start Game">
+                                        <rect key="frame" x="50" y="19.999999999999993" width="294" height="94.333333333333314"/>
+                                        <color key="backgroundColor" red="0.18823529410000001" green="0.21960784310000001" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="humanVsHuman"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <state key="normal" title="Human vs Human">
+                                            <color key="titleColor" red="1" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="gameModeTapped:" destination="dQP-Ev-2UY" eventType="touchUpInside" id="7bb-Re-MSv"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="DuN-gB-wan" firstAttribute="top" secondItem="ESu-wG-spf" secondAttribute="top" constant="20" id="3xR-t3-cuj"/>
+                                    <constraint firstItem="DuN-gB-wan" firstAttribute="centerX" secondItem="ESu-wG-spf" secondAttribute="centerX" id="8BA-HH-Eas"/>
+                                    <constraint firstItem="DuN-gB-wan" firstAttribute="height" secondItem="ESu-wG-spf" secondAttribute="height" multiplier="0.2" id="EeQ-Rh-zYz"/>
+                                    <constraint firstItem="DuN-gB-wan" firstAttribute="leading" secondItem="ESu-wG-spf" secondAttribute="leading" constant="50" id="irt-cE-4xu"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="JqX-y5-e0i" firstAttribute="bottom" secondItem="ESu-wG-spf" secondAttribute="bottom" constant="100" id="1nz-hv-LSy"/>
+                            <constraint firstItem="TEp-eg-ZJb" firstAttribute="centerX" secondItem="JqX-y5-e0i" secondAttribute="centerX" id="CxB-Og-UE6"/>
+                            <constraint firstItem="ESu-wG-spf" firstAttribute="centerY" secondItem="JqX-y5-e0i" secondAttribute="centerY" id="L8F-I2-Qbo"/>
+                            <constraint firstItem="ESu-wG-spf" firstAttribute="leading" secondItem="JqX-y5-e0i" secondAttribute="leading" constant="10" id="LYx-GD-1si"/>
+                            <constraint firstItem="TEp-eg-ZJb" firstAttribute="leading" secondItem="JqX-y5-e0i" secondAttribute="leading" constant="10" id="VeA-Za-zq0"/>
+                            <constraint firstItem="TEp-eg-ZJb" firstAttribute="top" secondItem="JqX-y5-e0i" secondAttribute="top" constant="10" id="eyg-V9-BeP"/>
+                            <constraint firstItem="ESu-wG-spf" firstAttribute="top" secondItem="TEp-eg-ZJb" secondAttribute="bottom" constant="10" id="kqD-IB-dAW"/>
+                            <constraint firstItem="ESu-wG-spf" firstAttribute="centerX" secondItem="JqX-y5-e0i" secondAttribute="centerX" id="s3v-XX-GwQ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="JqX-y5-e0i"/>
+                    </view>
+                    <connections>
+                        <outlet property="humanVsHumanButton" destination="DuN-gB-wan" id="1fe-cR-QZT"/>
+                        <outlet property="menuTitleLabel" destination="zSy-Sx-sEv" id="TId-K0-9Qw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qlf-ks-aQH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1833" y="-73"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="6zj-33-Hfn">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3ma-Je-Phg" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ajR-JR-u8D">
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Cy2-ct-kvz" kind="relationship" relationship="rootViewController" id="hIH-Mq-Ney"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J5x-Kn-KHY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-163.768115942029" y="-71.739130434782609"/>
+        </scene>
+    </scenes>
+</document>
