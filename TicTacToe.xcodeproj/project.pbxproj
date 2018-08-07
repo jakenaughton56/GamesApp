@@ -29,6 +29,10 @@
 		2BE38B212119322000BF7066 /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE38B202119322000BF7066 /* GameMode.swift */; };
 		2BE38B232119483700BF7066 /* MainMenuViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE38B222119483700BF7066 /* MainMenuViewControllerUITests.swift */; };
 		2BE38B2521194FB400BF7066 /* GameModeMenuViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE38B2421194FB400BF7066 /* GameModeMenuViewControllerUITests.swift */; };
+		2BE38B27211954FE00BF7066 /* AIPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE38B26211954FE00BF7066 /* AIPlayer.swift */; };
+		2BE38B29211956D400BF7066 /* AIPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE38B28211956D400BF7066 /* AIPlayerTests.swift */; };
+		2BE38B2B21195C3800BF7066 /* EasyAIPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE38B2A21195C3800BF7066 /* EasyAIPlayer.swift */; };
+		2BE38B2D21195CAA00BF7066 /* EasyAIPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE38B2C21195CAA00BF7066 /* EasyAIPlayerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +80,10 @@
 		2BE38B202119322000BF7066 /* GameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMode.swift; sourceTree = "<group>"; };
 		2BE38B222119483700BF7066 /* MainMenuViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewControllerUITests.swift; sourceTree = "<group>"; };
 		2BE38B2421194FB400BF7066 /* GameModeMenuViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModeMenuViewControllerUITests.swift; sourceTree = "<group>"; };
+		2BE38B26211954FE00BF7066 /* AIPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIPlayer.swift; sourceTree = "<group>"; };
+		2BE38B28211956D400BF7066 /* AIPlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIPlayerTests.swift; sourceTree = "<group>"; };
+		2BE38B2A21195C3800BF7066 /* EasyAIPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyAIPlayer.swift; sourceTree = "<group>"; };
+		2BE38B2C21195CAA00BF7066 /* EasyAIPlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyAIPlayerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +127,8 @@
 			children = (
 				2B1ED0F9210AE61100C89C9A /* Game.swift */,
 				2B1ED0F3210A2DFF00C89C9A /* Brain.swift */,
+				2BE38B26211954FE00BF7066 /* AIPlayer.swift */,
+				2BE38B2A21195C3800BF7066 /* EasyAIPlayer.swift */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -190,9 +200,11 @@
 			isa = PBXGroup;
 			children = (
 				2B1ED0FF210C7DD400C89C9A /* GameViewControllerTests.swift */,
+				2BE38B2C21195CAA00BF7066 /* EasyAIPlayerTests.swift */,
 				2B1ED0D22109C97000C89C9A /* Info.plist */,
 				2B1ED0EF2109CD3B00C89C9A /* BrainTests.swift */,
 				2B1ED0F5210AE08700C89C9A /* GameTests.swift */,
+				2BE38B28211956D400BF7066 /* AIPlayerTests.swift */,
 			);
 			path = TicTacToeTests;
 			sourceTree = "<group>";
@@ -346,12 +358,14 @@
 			files = (
 				2BE38B212119322000BF7066 /* GameMode.swift in Sources */,
 				2B0F11E22118870F009F0540 /* MainMenuViewController.swift in Sources */,
+				2BE38B2B21195C3800BF7066 /* EasyAIPlayer.swift in Sources */,
 				2B1ED0FE210C7CD500C89C9A /* GameViewController.swift in Sources */,
 				2B1ED0FC210B06DF00C89C9A /* GameState.swift in Sources */,
 				2B1ED0FA210AE61100C89C9A /* Game.swift in Sources */,
 				2BE38B1B2119295A00BF7066 /* GameModeMenuViewController.swift in Sources */,
 				2B1ED0EE2109CC3500C89C9A /* GameBoard.swift in Sources */,
 				2B1ED0BC2109C96E00C89C9A /* AppDelegate.swift in Sources */,
+				2BE38B27211954FE00BF7066 /* AIPlayer.swift in Sources */,
 				2B1ED0F4210A2DFF00C89C9A /* Brain.swift in Sources */,
 				2B1ED0F8210AE56400C89C9A /* Player.swift in Sources */,
 			);
@@ -361,8 +375,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BE38B29211956D400BF7066 /* AIPlayerTests.swift in Sources */,
 				2B1ED0F02109CD3B00C89C9A /* BrainTests.swift in Sources */,
 				2B1ED100210C7DD400C89C9A /* GameViewControllerTests.swift in Sources */,
+				2BE38B2D21195CAA00BF7066 /* EasyAIPlayerTests.swift in Sources */,
 				2B1ED0F6210AE08700C89C9A /* GameTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

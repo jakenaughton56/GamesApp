@@ -12,19 +12,15 @@ class Game {
     
     let brain: Brain
     var gameBoard: GameBoard
-    let player1: PlayerType
-    let player2: PlayerType
     var isItPlayerOnesTurn: Bool
     
-    init(player1: PlayerType, player2: PlayerType) {
-        self.player1 = player1
-        self.player2 = player2
+    init() {
         brain = Brain()
         gameBoard = GameBoard()
         isItPlayerOnesTurn = true
     }
     
-    func play(move: Square) -> GameState {
+    func play(_ move: Square) -> GameState {
         let playerSquareType: SquareType
         if isItPlayerOnesTurn {
             playerSquareType = .cross
@@ -34,7 +30,7 @@ class Game {
         if !brain.isMoveValid(gameBoard: gameBoard, move: move) {
             return .squareTaken
         }
-        if brain.hasPlayerWon(gameBoard: gameBoard) {
+        if brain.hasPlayerWon(gameBoard) {
             return .playerAlreadyWon
         }
         isItPlayerOnesTurn = !isItPlayerOnesTurn
@@ -59,10 +55,10 @@ class Game {
         case .bottomRight:
             gameBoard.bottomRight = playerSquareType
         }
-        if brain.hasPlayerWon(gameBoard: gameBoard) {
+        if brain.hasPlayerWon(gameBoard) {
             return .playerWins
         }
-        if brain.isBoardFull(gameBoard: gameBoard) {
+        if brain.isBoardFull(gameBoard) {
             return .gameBoardFull
         }
         return .nextMove

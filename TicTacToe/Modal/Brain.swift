@@ -11,7 +11,7 @@ import Foundation
 class Brain {
     
     // Check all seven combinations that lead to a win
-    func hasPlayerWon(gameBoard: GameBoard) -> Bool {
+    func hasPlayerWon(_ gameBoard: GameBoard) -> Bool {
         if areSquaresTheSameType(squares: [gameBoard.topLeft, gameBoard.top, gameBoard.topRight]) {
             return true
         }
@@ -64,7 +64,7 @@ class Brain {
     }
     
     // For a full board there must be no empty spaces
-    func isBoardFull(gameBoard: GameBoard) -> Bool {
+    func isBoardFull(_ gameBoard: GameBoard) -> Bool {
         if gameBoard.topLeft == .empty || gameBoard.top == .empty || gameBoard.topRight == .empty || gameBoard.left == .empty || gameBoard.centre == .empty || gameBoard.right == .empty || gameBoard.bottomLeft == .empty || gameBoard.bottom == .empty || gameBoard.bottomRight == .empty {
             return false
         }
@@ -72,7 +72,7 @@ class Brain {
     }
     
     // Check every square on the game board is empty
-    func checkEmpty(gameBoard: GameBoard) -> Bool {
+    func isEmpty(_ gameBoard: GameBoard) -> Bool {
         if gameBoard.topLeft != .empty || gameBoard.top != .empty || gameBoard.topRight != .empty || gameBoard.left != .empty || gameBoard.centre != .empty || gameBoard.right != .empty || gameBoard.bottomLeft != .empty || gameBoard.bottom != .empty || gameBoard.bottomRight != .empty {
             return false
         } else {

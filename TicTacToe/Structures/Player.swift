@@ -13,7 +13,3 @@ enum Player {
     case playerTwo
 }
 
-enum PlayerType {
-    case human
-    case computer
-}

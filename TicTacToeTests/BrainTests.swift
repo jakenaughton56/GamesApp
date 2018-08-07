@@ -29,129 +29,129 @@ class BrainTests: XCTestCase {
         gameBoard.topLeft = .cross
         gameBoard.top = .cross
         gameBoard.topRight = .cross
-        XCTAssertTrue(brain.hasPlayerWon(gameBoard: gameBoard))
+        XCTAssertTrue(brain.hasPlayerWon(gameBoard))
     }
     
     func testCrossLeftToRightWin() {
         gameBoard.left = .cross
         gameBoard.centre = .cross
         gameBoard.right = .cross
-        XCTAssertTrue(brain.hasPlayerWon(gameBoard: gameBoard))
+        XCTAssertTrue(brain.hasPlayerWon(gameBoard))
     }
     
     func testCrossBottomLeftToBottomRightWin() {
         gameBoard.bottomLeft = .cross
         gameBoard.bottom = .cross
         gameBoard.bottomRight = .cross
-        XCTAssertTrue(brain.hasPlayerWon(gameBoard: gameBoard))
+        XCTAssertTrue(brain.hasPlayerWon(gameBoard))
     }
     
     func testCrossTopLeftToBottomLeftWin() {
         gameBoard.topLeft = .cross
         gameBoard.left = .cross
         gameBoard.bottomLeft = .cross
-        XCTAssertTrue(brain.hasPlayerWon(gameBoard: gameBoard))
+        XCTAssertTrue(brain.hasPlayerWon(gameBoard))
     }
     
     func testCrossTopToBottomWin() {
         gameBoard.top = .cross
         gameBoard.centre = .cross
         gameBoard.bottom = .cross
-        XCTAssertTrue(brain.hasPlayerWon(gameBoard: gameBoard))
+        XCTAssertTrue(brain.hasPlayerWon(gameBoard))
     }
     
     func testCrossTopRightToBottomRightWin() {
         gameBoard.topRight = .cross
         gameBoard.right = .cross
         gameBoard.bottomRight = .cross
-        XCTAssertTrue(brain.hasPlayerWon(gameBoard: gameBoard))
+        XCTAssertTrue(brain.hasPlayerWon(gameBoard))
     }
     
     func testCrossTopLeftToBottomRightWin() {
         gameBoard.topLeft = .cross
         gameBoard.centre = .cross
         gameBoard.bottomRight = .cross
-        XCTAssertTrue(brain.hasPlayerWon(gameBoard: gameBoard))
+        XCTAssertTrue(brain.hasPlayerWon(gameBoard))
     }
     
     func testCrossTopRightToBottomLeftWin() {
         gameBoard.topRight = .cross
         gameBoard.centre = .cross
         gameBoard.bottomLeft = .cross
-        XCTAssertTrue(brain.hasPlayerWon(gameBoard: gameBoard))
+        XCTAssertTrue(brain.hasPlayerWon(gameBoard))
     }
     
     func testNoughtTopLeftToTopRightWin() {
         gameBoard.topLeft = .nought
         gameBoard.top = .nought
         gameBoard.topRight = .nought
-        XCTAssertTrue(brain.hasPlayerWon(gameBoard: gameBoard))
+        XCTAssertTrue(brain.hasPlayerWon(gameBoard))
     }
     
     func testNoughtLeftToRightWin() {
         gameBoard.left = .nought
         gameBoard.centre = .nought
         gameBoard.right = .nought
-        XCTAssertTrue(brain.hasPlayerWon(gameBoard: gameBoard))
+        XCTAssertTrue(brain.hasPlayerWon(gameBoard))
     }
     
     func testNoughtBottomLeftToBottomRightWin() {
         gameBoard.bottomLeft = .nought
         gameBoard.bottom = .nought
         gameBoard.bottomRight = .nought
-        XCTAssertTrue(brain.hasPlayerWon(gameBoard: gameBoard))
+        XCTAssertTrue(brain.hasPlayerWon(gameBoard))
     }
     
     func testNoughtTopLeftToBottomLeftWin() {
         gameBoard.topLeft = .nought
         gameBoard.left = .nought
         gameBoard.bottomLeft = .nought
-        XCTAssertTrue(brain.hasPlayerWon(gameBoard: gameBoard))
+        XCTAssertTrue(brain.hasPlayerWon(gameBoard))
     }
     
     func testNoughtTopToBottomWin() {
         gameBoard.top = .nought
         gameBoard.centre = .nought
         gameBoard.bottom = .nought
-        XCTAssertTrue(brain.hasPlayerWon(gameBoard: gameBoard))
+        XCTAssertTrue(brain.hasPlayerWon(gameBoard))
     }
     
     func testNoughtTopRightToBottomRightWin() {
         gameBoard.topRight = .nought
         gameBoard.right = .nought
         gameBoard.bottomRight = .nought
-        XCTAssertTrue(brain.hasPlayerWon(gameBoard: gameBoard))
+        XCTAssertTrue(brain.hasPlayerWon(gameBoard))
     }
     
     func testNoughtTopLeftToBottomRightWin() {
         gameBoard.topLeft = .nought
         gameBoard.centre = .nought
         gameBoard.bottomRight = .nought
-        XCTAssertTrue(brain.hasPlayerWon(gameBoard: gameBoard))
+        XCTAssertTrue(brain.hasPlayerWon(gameBoard))
     }
     
     func testNoughtTopRightToBottomLeftWin() {
         gameBoard.topRight = .nought
         gameBoard.centre = .nought
         gameBoard.bottomLeft = .nought
-        XCTAssertTrue(brain.hasPlayerWon(gameBoard: gameBoard))
+        XCTAssertTrue(brain.hasPlayerWon(gameBoard))
     }
     
     func testEmptyNoWin() {
-        XCTAssertFalse(brain.hasPlayerWon(gameBoard: gameBoard))
+        XCTAssertFalse(brain.hasPlayerWon(gameBoard))
     }
     
     func testMixedRowNoWin() {
         gameBoard.topRight = .nought
         gameBoard.right = .cross
         gameBoard.bottomRight = .nought
-        XCTAssertFalse(brain.hasPlayerWon(gameBoard: gameBoard))
+        XCTAssertFalse(brain.hasPlayerWon(gameBoard))
     }
     
     func testTwoInRowNoWin() {
         gameBoard.topLeft = .cross
         gameBoard.left = .cross
-        XCTAssertFalse(brain.hasPlayerWon(gameBoard: gameBoard))
+        XCTAssertFalse(brain.hasPlayerWon(gameBoard))
     }
     
     func testCheckMoveOnEmptyBoardIsValid() {
@@ -180,7 +180,7 @@ class BrainTests: XCTestCase {
         gameBoard.bottomLeft = .cross
         gameBoard.bottom = .nought
         gameBoard.bottomRight = .cross
-        XCTAssertTrue(brain.isBoardFull(gameBoard: gameBoard))
+        XCTAssertTrue(brain.isBoardFull(gameBoard))
     }
     
     func testEndOfGameIfGameBoardIsAlmostFull() {
@@ -192,20 +192,20 @@ class BrainTests: XCTestCase {
         gameBoard.bottomLeft = .cross
         gameBoard.bottom = .nought
         gameBoard.bottomRight = .cross
-        XCTAssertFalse(brain.isBoardFull(gameBoard: gameBoard))
+        XCTAssertFalse(brain.isBoardFull(gameBoard))
     }
     
     func testBoardIsNotFullAtStartOfGame() {
-        XCTAssertFalse(brain.isBoardFull(gameBoard: gameBoard))
+        XCTAssertFalse(brain.isBoardFull(gameBoard))
     }
     
     func testSquaresAreEmpty() {
-        XCTAssertTrue(brain.checkEmpty(gameBoard: gameBoard))
+        XCTAssertTrue(brain.isEmpty(gameBoard))
     }
     
     func testSquaresAreNotEmpty() {
         gameBoard.topLeft = .cross
-        XCTAssertFalse(brain.checkEmpty(gameBoard: gameBoard))
+        XCTAssertFalse(brain.isEmpty(gameBoard))
     }
     
 }

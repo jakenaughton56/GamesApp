@@ -31,6 +31,7 @@ class GameViewController: UIViewController {
     
     var game: Game?
     var gameMode: GameMode?
+    var gameState: GameState?
     
     @IBOutlet weak var playerOneTitleLabel: UILabel!
     @IBOutlet weak var playerOneScoreLabel: UILabel!
@@ -53,7 +54,7 @@ class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        game = Game(player1: .human, player2: .human)
+        game = Game()
         localizeStrings()
         setInitialScores()
     }
@@ -66,9 +67,20 @@ class GameViewController: UIViewController {
     private func localizeStrings() {
         newGameButton.setTitle(NSLocalizedString("New Game", comment: "Start a new game"), for: .normal)
         backButton.setTitle(NSLocalizedString("Back", comment: "Go back to main menu"), for: .normal)
-        gameStateLabel.text = NSLocalizedString("Player One's Turn", comment: "Player Ones turn to move")
-        playerOneTitleLabel.text = NSLocalizedString("Player One", comment: "Player One's Title")
-        playerTwoTitleLabel.text = NSLocalizedString("Player Two", comment: "Player Two's Title")
+        guard let unwrappedGameMode = gameMode else {
+            print("Game Mode was never intiated")
+            return
+        }
+        if unwrappedGameMode == .humanVsHuman {
+            gameStateLabel.text = NSLocalizedString("Player One's Turn", comment: "Player Ones turn to move")
+            playerOneTitleLabel.text = NSLocalizedString("Player One", comment: "Player One's Title")
+            playerTwoTitleLabel.text = NSLocalizedString("Player Two", comment: "Player Two's Title")
+        } else {
+            gameStateLabel.text = NSLocalizedString("Your Turn", comment: "User's turn to move")
+            playerOneTitleLabel.text = NSLocalizedString("You", comment: "User's score title")
+            playerTwoTitleLabel.text = NSLocalizedString("Computer", comment: "Computers score title")
+        }
+        
     }
     
     private func setInitialScores() {
@@ -77,80 +89,12 @@ class GameViewController: UIViewController {
     }
 
     @IBAction func squareTapped(_ sender: UIButton) {
-        var square: Square
-        switch sender {
-        case topLeftButton:
-            square = .topLeft
-        case topButton:
-            square = .top
-        case topRightButton:
-            square = .topRight
-        case leftButton:
-            square = .left
-        case centreButton:
-            square = .centre
-        case rightButton:
-            square = .right
-        case bottomLeftButton:
-            square = .bottomLeft
-        case bottomButton:
-            square = .bottom
-        case bottomRightButton:
-            square = .bottomRight
-        default:
-            print("Couldn't match square to button")
-            return
-        }
-        guard let unwrappedGame = game else {
-            print("Game didn't intiate properly")
-            return
-        }
-        let isItPlayerOnesTurn = unwrappedGame.isItPlayerOnesTurn
-        let gameState = play(move: square)
         
-        switch gameState {
-        case .nextMove:
-            drawOnSquare(square: square, button: sender, isItPlayerOnesTurn: isItPlayerOnesTurn)
-            if isItPlayerOnesTurn {
-                gameStateLabel.text = NSLocalizedString("Player Two's Turn", comment: "Player Two's turn to move")
-            } else {
-                gameStateLabel.text = NSLocalizedString("Player One's Turn", comment: "Player One's turn to move")
-            }
-        case .gameBoardFull:
-            drawOnSquare(square: square, button: sender, isItPlayerOnesTurn: isItPlayerOnesTurn)
-            gameStateLabel.text = NSLocalizedString("Draw!", comment: "Game was drawn")
-        case .playerWins:
-            drawOnSquare(square: square, button: sender, isItPlayerOnesTurn: isItPlayerOnesTurn)
-            if isItPlayerOnesTurn {
-                gameStateLabel.text = NSLocalizedString("Player One Wins!", comment: "Player One Won the game")
-                updateScore(player: .playerOne)
-            } else {
-                gameStateLabel.text = NSLocalizedString("Player Two Wins!", comment: "Player Two Won the game")
-                updateScore(player: .playerTwo)
-            }
-        case .squareTaken:
-            break // Don't need to do anything
-        case .playerAlreadyWon:
-            break // Don't need to do anything
-        case .error:
-            print("Error With GameState")
+        guard let square = getSquareFromButton(sender) else {
+            print("Couldn't match square to button in squareTapped")
             return
         }
-        
-        guard let unwrappedGameMode = gameMode else {
-            print("Game Mode was never intialised")
-            return
-        }
-        switch unwrappedGameMode {
-        case .humanVsHuman:
-            break // Don't need to do anything
-        case .easy:
-            break // Need to fill in
-        case .medium:
-            break // Need to fill in
-        case .hard:
-            break // Need to fill in
-        }
+        play(square)
     }
     
     @IBAction func newGameTapped() {
@@ -162,12 +106,89 @@ class GameViewController: UIViewController {
         self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
     }
     
-    func play(move: Square) -> GameState {
+    func play(_ square: Square) {
+        
+        guard let unwrappedGame = game else {
+            print("Game didn't intiate properly")
+            return
+        }
+        let isItPlayerOnesTurn = unwrappedGame.isItPlayerOnesTurn
+        gameState = playMove(square)
+        updateViewForNew(gameState!, isItPlayerOnesTurn: isItPlayerOnesTurn, square: square)
+        
+        guard let unwrappedGameMode = gameMode else {
+            print("Game Mode was never intialised")
+            return
+        }
+        switch unwrappedGameMode {
+        case .humanVsHuman:
+            break
+        case .easy:
+            let computerPlayer = EasyAIPlayer()
+            computersMove(computerPlayer)
+        case .medium:
+            break
+        case .hard:
+            break
+        }
+    }
+    
+    func computersMove(_ computerPlayer: AIPlayer) {
+        guard let unwrappedGame = game else {
+            print("Game didn't intiate properly in computerMove")
+            return
+        }
+        let computerMove = computerPlayer.chooseMove(unwrappedGame.gameBoard)
+        guard let square = computerMove else {
+            print("Computer failed to make a move in computerMove")
+            return
+        }
+        let isItPlayerOnesTurn = unwrappedGame.isItPlayerOnesTurn
+        gameState = playMove(square)
+        updateViewForNew(gameState!, isItPlayerOnesTurn: isItPlayerOnesTurn, square: square)
+    }
+    
+    func updateViewForNew(_ gameState: GameState, isItPlayerOnesTurn: Bool, square: Square) {
+//        guard let unwrappedGameMode = gameMode else {
+//            print("Update view failed as Game Mode was never intiated")
+//            return
+//        }
+        switch gameState {
+        case .nextMove:
+            drawOnSquare(square: square, isItPlayerOnesTurn: isItPlayerOnesTurn)
+            if isItPlayerOnesTurn {
+                gameStateLabel.text = NSLocalizedString("Player Two's Turn", comment: "Player Two's turn to move")
+            } else {
+                gameStateLabel.text = NSLocalizedString("Player One's Turn", comment: "Player One's turn to move")
+            }
+        case .gameBoardFull:
+            drawOnSquare(square: square, isItPlayerOnesTurn: isItPlayerOnesTurn)
+            gameStateLabel.text = NSLocalizedString("Draw!", comment: "Game was drawn")
+        case .playerWins:
+            drawOnSquare(square: square, isItPlayerOnesTurn: isItPlayerOnesTurn)
+            if isItPlayerOnesTurn {
+                gameStateLabel.text = NSLocalizedString("Player One Wins!", comment: "Player One Won the game")
+                updateScore(player: .playerOne)
+            } else {
+                gameStateLabel.text = NSLocalizedString("Player Two Wins!", comment: "Player Two Won the game")
+                updateScore(player: .playerTwo)
+            }
+        case .squareTaken:
+        break // Don't need to do anything
+        case .playerAlreadyWon:
+        break // Don't need to do anything
+        case .error:
+            print("Error With GameState")
+            return
+        }
+    }
+    
+    func playMove(_ move: Square) -> GameState {
         guard let unwrappedGame = game else {
             print("Game didn't intiate properly")
             return .error
         }
-        let gameState = unwrappedGame.play(move: move)
+        let gameState = unwrappedGame.play(move)
         return gameState
     }
     
@@ -205,11 +226,59 @@ class GameViewController: UIViewController {
         }
     }
     
-    private func drawOnSquare(square: Square, button: UIButton, isItPlayerOnesTurn: Bool) {
+    private func getSquareFromButton(_ button: UIButton) -> Square? {
+        var square: Square?
+        switch button {
+        case topLeftButton:
+            square = .topLeft
+        case topButton:
+            square = .top
+        case topRightButton:
+            square = .topRight
+        case leftButton:
+            square = .left
+        case centreButton:
+            square = .centre
+        case rightButton:
+            square = .right
+        case bottomLeftButton:
+            square = .bottomLeft
+        case bottomButton:
+            square = .bottom
+        case bottomRightButton:
+            square = .bottomRight
+        default:
+            print("Couldn't match square to button")
+        }
+        return square
+    }
+    
+    private func drawOnSquare(square: Square, isItPlayerOnesTurn: Bool) {
+        var image: UIImage
         if isItPlayerOnesTurn {
-            button.setImage(#imageLiteral(resourceName: "Cross"), for: .normal)
+            image = #imageLiteral(resourceName: "Cross")
         } else {
-            button.setImage(#imageLiteral(resourceName: "Nought"), for: .normal)
+            image = #imageLiteral(resourceName: "Nought")
+        }
+        switch square {
+        case .topLeft:
+            topLeftButton.setImage(image, for: .normal)
+        case .top:
+            topButton.setImage(image, for: .normal)
+        case .topRight:
+            topRightButton.setImage(image, for: .normal)
+        case .left:
+            leftButton.setImage(image, for: .normal)
+        case .centre:
+            centreButton.setImage(image, for: .normal)
+        case .right:
+            rightButton.setImage(image, for: .normal)
+        case .bottomLeft:
+            bottomLeftButton.setImage(image, for: .normal)
+        case .bottom:
+            bottomButton.setImage(image, for: .normal)
+        case .bottomRight:
+            bottomRightButton.setImage(image, for: .normal)
         }
     }
 }
