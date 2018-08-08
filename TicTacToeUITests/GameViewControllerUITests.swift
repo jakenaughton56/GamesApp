@@ -16,7 +16,6 @@ class GameViewControllerUITests: XCTestCase {
         XCUIApplication().launch()
         let app = XCUIApplication()
         app.buttons["startGame"].tap()
-        app.buttons["humanVsHuman"].tap()
     }
     
     override func tearDown() {
@@ -24,6 +23,7 @@ class GameViewControllerUITests: XCTestCase {
     }
     
     func testIntialState() {
+        humanVsHumanSetUp()
         let app = XCUIApplication()
         XCTAssertTrue(app.staticTexts[localized("Player One's Turn")].exists)
         XCTAssertTrue(app.buttons[localized("New Game")].exists)
@@ -35,12 +35,14 @@ class GameViewControllerUITests: XCTestCase {
     }
     
     func testPlayingFirstMove() {
+        humanVsHumanSetUp()
         let app = XCUIApplication()
         app.buttons["topLeft"].tap()
         XCTAssertTrue(app.staticTexts[localized("Player Two's Turn")].exists)
     }
     
     func testTappingOnTakenSquare() {
+        humanVsHumanSetUp()
         let app = XCUIApplication()
         app.buttons["topLeft"].tap()
         XCTAssertTrue(app.staticTexts[localized("Player Two's Turn")].exists)
@@ -51,6 +53,7 @@ class GameViewControllerUITests: XCTestCase {
     }
     
     func testAlternatingPlayers() {
+        humanVsHumanSetUp()
         let app = XCUIApplication()
         XCTAssertTrue(app.staticTexts[localized("Player One's Turn")].exists)
         XCTAssertFalse(app.staticTexts[localized("Player Two's Turn")].exists)
@@ -69,6 +72,7 @@ class GameViewControllerUITests: XCTestCase {
     }
     
     func testTestingFullBoard() {
+        humanVsHumanSetUp()
         let app = XCUIApplication()
         app.buttons["centre"].tap()
         app.buttons["topLeft"].tap()
@@ -83,12 +87,14 @@ class GameViewControllerUITests: XCTestCase {
     }
     
     func testPlayerOneWinStraight() {
+        humanVsHumanSetUp()
         let app = XCUIApplication()
         straightWinForPlayerOne(app: app)
         XCTAssertTrue(app.staticTexts[localized("Player One Wins!")].exists)
     }
     
     func testPlayerOneWinDiagonal() {
+        humanVsHumanSetUp()
         let app = XCUIApplication()
         app.buttons["topLeft"].tap()
         app.buttons["top"].tap()
@@ -99,12 +105,14 @@ class GameViewControllerUITests: XCTestCase {
     }
     
     func testPlayerTwoWinStraight() {
+        humanVsHumanSetUp()
         let app = XCUIApplication()
         straightWinForPlayerTwo(app: app)
         XCTAssertTrue(app.staticTexts[localized("Player Two Wins!")].exists)
     }
     
     func testPlayerTwoWinDiagonal() {
+        humanVsHumanSetUp()
         let app = XCUIApplication()
         app.buttons["topLeft"].tap()
         app.buttons["topRight"].tap()
@@ -116,6 +124,7 @@ class GameViewControllerUITests: XCTestCase {
     }
     
     func testStartingNewGame() {
+        humanVsHumanSetUp()
         let app = XCUIApplication()
         app.buttons["topLeft"].tap()
         app.buttons["bottom"].tap()
@@ -125,12 +134,14 @@ class GameViewControllerUITests: XCTestCase {
     }
     
     func testPlayerOneIncreaseScore() {
+        humanVsHumanSetUp()
         let app = XCUIApplication()
         straightWinForPlayerOne(app: app)
         XCTAssertTrue(app.staticTexts["playerOneScore"].label == "1")
     }
     
     func testPlayerOneIncreaseScoreTwice() {
+        humanVsHumanSetUp()
         let app = XCUIApplication()
         straightWinForPlayerOne(app: app)
         app.buttons["newGame"].tap()
@@ -139,12 +150,14 @@ class GameViewControllerUITests: XCTestCase {
     }
     
     func testPlayerTwoIncreaseScore() {
+        humanVsHumanSetUp()
         let app = XCUIApplication()
         straightWinForPlayerTwo(app: app)
         XCTAssertTrue(app.staticTexts["playerTwoScore"].label == "1")
     }
     
     func testPlayerTwoIncreaseScoreTwice() {
+        humanVsHumanSetUp()
         let app = XCUIApplication()
         straightWinForPlayerTwo(app: app)
         app.buttons["newGame"].tap()
@@ -153,9 +166,30 @@ class GameViewControllerUITests: XCTestCase {
         
     }
     
+    func testEasyComputerPlaysMove() {
+        easyComputerSetUp()
+        let app = XCUIApplication()
+        app.buttons["centre"].tap()
+        XCTAssertFalse(app.staticTexts[localized("Your Turn")].exists)
+        XCTAssertTrue(app.staticTexts[localized("Computer's Turn")].exists)
+        sleep(4)
+        XCTAssertTrue(app.staticTexts[localized("Your Turn")].exists)
+        XCTAssertFalse(app.staticTexts[localized("Computer's Turn")].exists)
+    }
+    
     private func localized(_ key: String) -> String {
         let uiTestBundle = Bundle(for: GameViewControllerUITests.self)
         return NSLocalizedString(key, bundle: uiTestBundle, comment: "")
+    }
+    
+    private func humanVsHumanSetUp() {
+        let app = XCUIApplication()
+        app.buttons["humanVsHuman"].tap()
+    }
+    
+    private func easyComputerSetUp() {
+        let app = XCUIApplication()
+        app.buttons["easyMode"].tap()
     }
     
     private func straightWinForPlayerOne(app: XCUIApplication) {

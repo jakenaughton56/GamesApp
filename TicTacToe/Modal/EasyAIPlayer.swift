@@ -18,38 +18,13 @@ class EasyAIPlayer: AIPlayer {
         var gameState: GameState
         var move: Square
         repeat {
-            move = getRandomSquare()
+            move = chooseRandomSquareFrom(allBoardSqares)
             gameState = game.play(move)
         } while gameState == .squareTaken
         
         return move
     }
     
-    private func getRandomSquare() -> Square {
-        let randomNumber = arc4random_uniform(9) + 1
-        switch randomNumber {
-        case 1:
-            return .topLeft
-        case 2:
-            return .top
-        case 3:
-            return .topRight
-        case 4:
-            return .left
-        case 5:
-            return .centre
-        case 6:
-            return .right
-        case 7:
-            return .bottomLeft
-        case 8:
-            return .bottom
-        case 9:
-            return .bottomRight
-        default:
-            print("Error: Random number failed to pick a square")
-            return .centre
-        }
-    }
+    
     
 }

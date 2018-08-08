@@ -19,6 +19,7 @@ class GameViewControllerTests: XCTestCase {
         gameViewController = storyboard.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
         UIApplication.shared.keyWindow!.rootViewController = gameViewController
         let _ = gameViewController.view
+        gameViewController.gameMode = .humanVsHuman
     }
     
     override func tearDown() {
@@ -178,50 +179,52 @@ class GameViewControllerTests: XCTestCase {
     
     func testDrawingOnAllSquares() {
         gameViewController.play(.topLeft)
+        gameViewController.play(.top)
+        gameViewController.play(.left)
+        gameViewController.play(.centre)
+        gameViewController.play(.topRight)
+        gameViewController.play(.bottomLeft)
+        gameViewController.play(.bottom)
+        gameViewController.play(.right)
+        gameViewController.play(.bottomRight)
+        
         guard let topLeftImage = gameViewController.topLeftButton.currentImage else {
             XCTFail()
             return
         }
-        gameViewController.play(.top)
         guard let topImage = gameViewController.topButton.currentImage else {
             XCTFail()
             return
         }
-        gameViewController.play(.left)
         guard let leftImage = gameViewController.leftButton.currentImage else {
             XCTFail()
             return
         }
-        gameViewController.play(.centre)
         guard let centreImage = gameViewController.centreButton.currentImage else {
             XCTFail()
             return
         }
-        gameViewController.play(.topRight)
         guard let topRightImage = gameViewController.topRightButton.currentImage else {
             XCTFail()
             return
         }
-        gameViewController.play(.bottomLeft)
         guard let bottomLeftImage = gameViewController.bottomLeftButton.currentImage else {
             XCTFail()
             return
         }
-        gameViewController.play(.bottom)
         guard let bottomImage = gameViewController.bottomButton.currentImage else {
             XCTFail()
             return
         }
-        gameViewController.play(.right)
         guard let rightImage = gameViewController.rightButton.currentImage else {
             XCTFail()
             return
         }
-        gameViewController.play(.bottomRight)
         guard let bottomRightImage = gameViewController.bottomRightButton.currentImage else {
             XCTFail()
             return
         }
+        
         XCTAssert(topLeftImage.isEqual(#imageLiteral(resourceName: "Cross")))
         XCTAssert(topImage.isEqual(#imageLiteral(resourceName: "Nought")))
         XCTAssert(leftImage.isEqual(#imageLiteral(resourceName: "Cross")))
@@ -236,7 +239,9 @@ class GameViewControllerTests: XCTestCase {
     func testEasyGameMode() {
         gameViewController.gameMode = .easy
         gameViewController.play(.centre)
-        XCTAssert(gameViewController.game?.isItPlayerOnesTurn == true)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Constants.computerThinkTime + 1) {
+            XCTAssert(self.gameViewController.game?.isItPlayerOnesTurn == true)
+        }
     }
     
 }

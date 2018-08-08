@@ -25,6 +25,8 @@
 		2B1ED1042111949E00C89C9A /* GameViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1ED1032111949E00C89C9A /* GameViewControllerUITests.swift */; };
 		2B1ED1102112A51300C89C9A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2B1ED1122112A51300C89C9A /* Localizable.strings */; };
 		2B1ED1142112AF8F00C89C9A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2B1ED1122112A51300C89C9A /* Localizable.strings */; };
+		2B4C86CB211A0017007AAEDD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4C86CA211A0017007AAEDD /* Constants.swift */; };
+		2B4C86CD211AA2F3007AAEDD /* AdvancedAIPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4C86CC211AA2F3007AAEDD /* AdvancedAIPlayer.swift */; };
 		2BE38B1B2119295A00BF7066 /* GameModeMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE38B1A2119295A00BF7066 /* GameModeMenuViewController.swift */; };
 		2BE38B212119322000BF7066 /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE38B202119322000BF7066 /* GameMode.swift */; };
 		2BE38B232119483700BF7066 /* MainMenuViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE38B222119483700BF7066 /* MainMenuViewControllerUITests.swift */; };
@@ -76,6 +78,8 @@
 		2B1ED0FF210C7DD400C89C9A /* GameViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewControllerTests.swift; sourceTree = "<group>"; };
 		2B1ED1032111949E00C89C9A /* GameViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewControllerUITests.swift; sourceTree = "<group>"; };
 		2B1ED1112112A51300C89C9A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2B4C86CA211A0017007AAEDD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2B4C86CC211AA2F3007AAEDD /* AdvancedAIPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedAIPlayer.swift; sourceTree = "<group>"; };
 		2BE38B1A2119295A00BF7066 /* GameModeMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModeMenuViewController.swift; sourceTree = "<group>"; };
 		2BE38B202119322000BF7066 /* GameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMode.swift; sourceTree = "<group>"; };
 		2BE38B222119483700BF7066 /* MainMenuViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewControllerUITests.swift; sourceTree = "<group>"; };
@@ -129,6 +133,7 @@
 				2B1ED0F3210A2DFF00C89C9A /* Brain.swift */,
 				2BE38B26211954FE00BF7066 /* AIPlayer.swift */,
 				2BE38B2A21195C3800BF7066 /* EasyAIPlayer.swift */,
+				2B4C86CC211AA2F3007AAEDD /* AdvancedAIPlayer.swift */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -137,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				2B1ED0F7210AE56400C89C9A /* Player.swift */,
+				2B4C86CA211A0017007AAEDD /* Constants.swift */,
 				2B1ED0ED2109CC3500C89C9A /* GameBoard.swift */,
 				2B1ED0FB210B06DF00C89C9A /* GameState.swift */,
 				2B1ED1122112A51300C89C9A /* Localizable.strings */,
@@ -363,8 +369,10 @@
 				2B1ED0FC210B06DF00C89C9A /* GameState.swift in Sources */,
 				2B1ED0FA210AE61100C89C9A /* Game.swift in Sources */,
 				2BE38B1B2119295A00BF7066 /* GameModeMenuViewController.swift in Sources */,
+				2B4C86CB211A0017007AAEDD /* Constants.swift in Sources */,
 				2B1ED0EE2109CC3500C89C9A /* GameBoard.swift in Sources */,
 				2B1ED0BC2109C96E00C89C9A /* AppDelegate.swift in Sources */,
+				2B4C86CD211AA2F3007AAEDD /* AdvancedAIPlayer.swift in Sources */,
 				2BE38B27211954FE00BF7066 /* AIPlayer.swift in Sources */,
 				2B1ED0F4210A2DFF00C89C9A /* Brain.swift in Sources */,
 				2B1ED0F8210AE56400C89C9A /* Player.swift in Sources */,

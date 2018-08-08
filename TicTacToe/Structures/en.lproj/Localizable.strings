@@ -19,7 +19,11 @@
 "Start Game" = "Start Game";
 "Game Mode" = "Game Mode";
 "Human Vs Human" = "Human vs Human";
-"Your turn" = "Your turnnn";
-"Computer's turn" = "Computer's turnnnn";
+"Your Turn" = "Your Turnnn";
+"Computer's Turn" = "Computer's Turnnnn";
 "You" = "Youuuu";
 "Computer" = "Computerrrr";
+"Easy" = "Easyyyyy";
+"Computer's Turn" = "Computer's Turnnnnnn";
+"You Win!" = "You Win!!!!";
+"Computer Beat You!" = "Computer Beat You!!!!";

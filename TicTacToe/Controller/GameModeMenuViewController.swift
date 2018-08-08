@@ -12,6 +12,7 @@ class GameModeMenuViewController: UIViewController {
     
     @IBOutlet weak var menuTitleLabel: UILabel!
     @IBOutlet weak var humanVsHumanButton: UIButton!
+    @IBOutlet weak var easyModeButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,7 @@ class GameModeMenuViewController: UIViewController {
     private func localizeStrings() {
         menuTitleLabel.text = NSLocalizedString("Game Mode", comment: "Type of Game to play")
         humanVsHumanButton.setTitle(NSLocalizedString("Human Vs Human", comment: "Human plays another Human"), for: .normal)
+        easyModeButton.setTitle(NSLocalizedString("Easy", comment: "Vs Computer in Easy Mode"), for: .normal)
     }
     
     @IBAction func gameModeTapped(_ sender: UIButton) {
@@ -33,6 +35,8 @@ class GameModeMenuViewController: UIViewController {
         switch sender {
         case humanVsHumanButton:
             vc.gameMode = .humanVsHuman
+        case easyModeButton:
+            vc.gameMode = .easy
         default:
             print("Error: Button is not accosiated with a game mode")
             return

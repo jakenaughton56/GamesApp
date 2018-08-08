@@ -89,7 +89,6 @@ class GameViewController: UIViewController {
     }
 
     @IBAction func squareTapped(_ sender: UIButton) {
-        
         guard let square = getSquareFromButton(sender) else {
             print("Couldn't match square to button in squareTapped")
             return
@@ -112,66 +111,107 @@ class GameViewController: UIViewController {
             print("Game didn't intiate properly")
             return
         }
+        
         let isItPlayerOnesTurn = unwrappedGame.isItPlayerOnesTurn
         gameState = playMove(square)
-        updateViewForNew(gameState!, isItPlayerOnesTurn: isItPlayerOnesTurn, square: square)
+        guard let unwrappedGameState = gameState  else {
+            print("Impossible to get here as we just intiated Game State")
+            return
+        }
+        updateViewForNew(unwrappedGameState, isItPlayerOnesTurn: isItPlayerOnesTurn, square: square)
         
         guard let unwrappedGameMode = gameMode else {
             print("Game Mode was never intialised")
             return
         }
-        switch unwrappedGameMode {
-        case .humanVsHuman:
-            break
-        case .easy:
-            let computerPlayer = EasyAIPlayer()
-            computersMove(computerPlayer)
-        case .medium:
-            break
-        case .hard:
-            break
+        if unwrappedGameState == .nextMove {
+            switch unwrappedGameMode {
+            case .humanVsHuman:
+                break
+            case .easy:
+                let computerPlayer = EasyAIPlayer()
+                computersMove(computerPlayer)
+            case .medium:
+                break
+            case .hard:
+                break
+            }
         }
     }
     
     func computersMove(_ computerPlayer: AIPlayer) {
-        guard let unwrappedGame = game else {
-            print("Game didn't intiate properly in computerMove")
-            return
+        buttonsEnabled(false)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Constants.computerThinkTime) {
+            guard let unwrappedGame = self.game else {
+                print("Game didn't intiate properly in computerMove")
+                return
+            }
+            let computerMove = computerPlayer.chooseMove(unwrappedGame.gameBoard)
+            guard let square = computerMove else {
+                print("Computer failed to make a move in computerMove")
+                return
+            }
+            let isItPlayerOnesTurn = unwrappedGame.isItPlayerOnesTurn
+            self.gameState = self.playMove(square)
+            self.updateViewForNew(self.gameState!, isItPlayerOnesTurn: isItPlayerOnesTurn, square: square)
+            self.buttonsEnabled(true)
         }
-        let computerMove = computerPlayer.chooseMove(unwrappedGame.gameBoard)
-        guard let square = computerMove else {
-            print("Computer failed to make a move in computerMove")
-            return
-        }
-        let isItPlayerOnesTurn = unwrappedGame.isItPlayerOnesTurn
-        gameState = playMove(square)
-        updateViewForNew(gameState!, isItPlayerOnesTurn: isItPlayerOnesTurn, square: square)
+    }
+    
+    func buttonsEnabled(_ isEnabled: Bool) {
+        topLeftButton.isEnabled = isEnabled
+        topButton.isEnabled = isEnabled
+        topRightButton.isEnabled = isEnabled
+        leftButton.isEnabled = isEnabled
+        centreButton.isEnabled = isEnabled
+        rightButton.isEnabled = isEnabled
+        bottomLeftButton.isEnabled = isEnabled
+        bottomButton.isEnabled = isEnabled
+        bottomRightButton.isEnabled = isEnabled
     }
     
     func updateViewForNew(_ gameState: GameState, isItPlayerOnesTurn: Bool, square: Square) {
-//        guard let unwrappedGameMode = gameMode else {
-//            print("Update view failed as Game Mode was never intiated")
-//            return
-//        }
+        guard let unwrappedGameMode = gameMode else {
+            print("Update view failed as Game Mode was never intiated")
+            return
+        }
         switch gameState {
         case .nextMove:
             drawOnSquare(square: square, isItPlayerOnesTurn: isItPlayerOnesTurn)
-            if isItPlayerOnesTurn {
-                gameStateLabel.text = NSLocalizedString("Player Two's Turn", comment: "Player Two's turn to move")
+            if unwrappedGameMode == .humanVsHuman {
+                if isItPlayerOnesTurn {
+                    gameStateLabel.text = NSLocalizedString("Player Two's Turn", comment: "Player Two's turn to move")
+                } else {
+                    gameStateLabel.text = NSLocalizedString("Player One's Turn", comment: "Player One's turn to move")
+                }
             } else {
-                gameStateLabel.text = NSLocalizedString("Player One's Turn", comment: "Player One's turn to move")
+                if isItPlayerOnesTurn {
+                    gameStateLabel.text = NSLocalizedString("Computer's Turn", comment: "User's turn to move")
+                } else {
+                    gameStateLabel.text = NSLocalizedString("Your Turn", comment: "Computer's turn to move")
+                }
             }
         case .gameBoardFull:
             drawOnSquare(square: square, isItPlayerOnesTurn: isItPlayerOnesTurn)
             gameStateLabel.text = NSLocalizedString("Draw!", comment: "Game was drawn")
         case .playerWins:
             drawOnSquare(square: square, isItPlayerOnesTurn: isItPlayerOnesTurn)
-            if isItPlayerOnesTurn {
-                gameStateLabel.text = NSLocalizedString("Player One Wins!", comment: "Player One Won the game")
-                updateScore(player: .playerOne)
+            if unwrappedGameMode == .humanVsHuman {
+                if isItPlayerOnesTurn {
+                    gameStateLabel.text = NSLocalizedString("Player One Wins!", comment: "Player One Won the game")
+                    updateScore(player: .playerOne)
+                } else {
+                    gameStateLabel.text = NSLocalizedString("Player Two Wins!", comment: "Player Two Won the game")
+                    updateScore(player: .playerTwo)
+                }
             } else {
-                gameStateLabel.text = NSLocalizedString("Player Two Wins!", comment: "Player Two Won the game")
-                updateScore(player: .playerTwo)
+                if isItPlayerOnesTurn {
+                    gameStateLabel.text = NSLocalizedString("You Win!", comment: "Player One Won the game")
+                    updateScore(player: .playerOne)
+                } else {
+                    gameStateLabel.text = NSLocalizedString("Computer Beat You!", comment: "Player Two Won the game")
+                    updateScore(player: .playerTwo)
+                }
             }
         case .squareTaken:
         break // Don't need to do anything
