@@ -11,7 +11,6 @@ import Foundation
 class EasyAIPlayer: AIPlayer {
     
     override func chooseMove(_ gameBoard: GameBoard) -> Square? {
-        let brain = Brain()
         let game = Game()
         if brain.isBoardFull(gameBoard) { return nil }
         game.gameBoard = gameBoard
@@ -19,7 +18,7 @@ class EasyAIPlayer: AIPlayer {
         var move: Square
         repeat {
             move = chooseRandomSquareFrom(allBoardSqares)
-            gameState = game.play(move)
+            gameState = game.play(move, squareType: squareType)
         } while gameState == .squareTaken
         
         return move

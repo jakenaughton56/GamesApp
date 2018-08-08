@@ -29,7 +29,8 @@ class GameViewController: UIViewController {
         }
     }
     
-    var game: Game?
+    let game = Game()
+    var isItPlayerOnesTurn: Bool = true
     var gameMode: GameMode?
     var gameState: GameState?
     
@@ -54,7 +55,6 @@ class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        game = Game()
         localizeStrings()
         setInitialScores()
     }
@@ -98,6 +98,7 @@ class GameViewController: UIViewController {
     
     @IBAction func newGameTapped() {
         newGame()
+        isItPlayerOnesTurn = true
         gameStateLabel.text = NSLocalizedString("Player One's Turn", comment: "Player One's turn to move")
     }
     
@@ -106,30 +107,28 @@ class GameViewController: UIViewController {
     }
     
     func play(_ square: Square) {
-        
-        guard let unwrappedGame = game else {
-            print("Game didn't intiate properly")
-            return
-        }
-        
-        let isItPlayerOnesTurn = unwrappedGame.isItPlayerOnesTurn
-        gameState = playMove(square)
-        guard let unwrappedGameState = gameState  else {
-            print("Impossible to get here as we just intiated Game State")
-            return
-        }
-        updateViewForNew(unwrappedGameState, isItPlayerOnesTurn: isItPlayerOnesTurn, square: square)
-        
         guard let unwrappedGameMode = gameMode else {
             print("Game Mode was never intialised")
             return
         }
-        if unwrappedGameState == .nextMove {
+        
+        var squareType: SquareType
+        if isItPlayerOnesTurn {
+            squareType = Constants.playerOneSquareType
+        } else {
+            squareType = Constants.playerTwoSquareType
+        }
+        
+        gameState = playMove(square, squareType: squareType)
+        updateViewForNew(square)
+
+        if gameState == .nextMove {
+            isItPlayerOnesTurn = !isItPlayerOnesTurn
             switch unwrappedGameMode {
             case .humanVsHuman:
                 break
             case .easy:
-                let computerPlayer = EasyAIPlayer()
+                let computerPlayer = EasyAIPlayer(squareType: Constants.playerTwoSquareType)
                 computersMove(computerPlayer)
             case .medium:
                 break
@@ -142,40 +141,36 @@ class GameViewController: UIViewController {
     func computersMove(_ computerPlayer: AIPlayer) {
         buttonsEnabled(false)
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Constants.computerThinkTime) {
-            guard let unwrappedGame = self.game else {
-                print("Game didn't intiate properly in computerMove")
-                return
-            }
-            let computerMove = computerPlayer.chooseMove(unwrappedGame.gameBoard)
+            let computerMove = computerPlayer.chooseMove(self.game.gameBoard)
             guard let square = computerMove else {
                 print("Computer failed to make a move in computerMove")
                 return
             }
-            let isItPlayerOnesTurn = unwrappedGame.isItPlayerOnesTurn
-            self.gameState = self.playMove(square)
-            self.updateViewForNew(self.gameState!, isItPlayerOnesTurn: isItPlayerOnesTurn, square: square)
+            self.gameState = self.playMove(square, squareType: Constants.playerTwoSquareType)
+            self.updateViewForNew(square)
             self.buttonsEnabled(true)
+            if self.gameState == .nextMove {
+                self.isItPlayerOnesTurn = !self.isItPlayerOnesTurn
+            }
         }
     }
     
-    func buttonsEnabled(_ isEnabled: Bool) {
-        topLeftButton.isEnabled = isEnabled
-        topButton.isEnabled = isEnabled
-        topRightButton.isEnabled = isEnabled
-        leftButton.isEnabled = isEnabled
-        centreButton.isEnabled = isEnabled
-        rightButton.isEnabled = isEnabled
-        bottomLeftButton.isEnabled = isEnabled
-        bottomButton.isEnabled = isEnabled
-        bottomRightButton.isEnabled = isEnabled
+    func playMove(_ move: Square, squareType: SquareType) -> GameState {
+        return game.play(move, squareType: squareType)
     }
     
-    func updateViewForNew(_ gameState: GameState, isItPlayerOnesTurn: Bool, square: Square) {
+    
+    
+    func updateViewForNew(_ square: Square) {
         guard let unwrappedGameMode = gameMode else {
             print("Update view failed as Game Mode was never intiated")
             return
         }
-        switch gameState {
+        guard let unwrappedGameState = gameState else {
+            print("Game State wasn't set")
+            return
+        }
+        switch unwrappedGameState {
         case .nextMove:
             drawOnSquare(square: square, isItPlayerOnesTurn: isItPlayerOnesTurn)
             if unwrappedGameMode == .humanVsHuman {
@@ -223,21 +218,8 @@ class GameViewController: UIViewController {
         }
     }
     
-    func playMove(_ move: Square) -> GameState {
-        guard let unwrappedGame = game else {
-            print("Game didn't intiate properly")
-            return .error
-        }
-        let gameState = unwrappedGame.play(move)
-        return gameState
-    }
-    
     func newGame() {
-        guard let unwrappedGame = game else {
-            print("Game didn't intiate properly")
-            return
-        }
-        unwrappedGame.startNewGame()
+        game.startNewGame()
         topLeftButton.setImage(nil, for: .normal)
         topButton.setImage(nil, for: .normal)
         topRightButton.setImage(nil, for: .normal)
@@ -264,6 +246,18 @@ class GameViewController: UIViewController {
             }
             playerTwoScore = unwrappedScore + 1
         }
+    }
+    
+    private func buttonsEnabled(_ isEnabled: Bool) {
+        topLeftButton.isEnabled = isEnabled
+        topButton.isEnabled = isEnabled
+        topRightButton.isEnabled = isEnabled
+        leftButton.isEnabled = isEnabled
+        centreButton.isEnabled = isEnabled
+        rightButton.isEnabled = isEnabled
+        bottomLeftButton.isEnabled = isEnabled
+        bottomButton.isEnabled = isEnabled
+        bottomRightButton.isEnabled = isEnabled
     }
     
     private func getSquareFromButton(_ button: UIButton) -> Square? {

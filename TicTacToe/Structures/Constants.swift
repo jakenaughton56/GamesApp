@@ -10,4 +10,6 @@ import Foundation
 
 struct Constants {
     static let computerThinkTime = 0.5
+    static let playerOneSquareType = SquareType.cross
+    static let playerTwoSquareType = SquareType.nought
 }

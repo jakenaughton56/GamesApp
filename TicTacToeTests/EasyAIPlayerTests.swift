@@ -13,7 +13,8 @@ class EasyAIPlayerTests: XCTestCase {
     
     let game = Game()
     let brain = Brain()
-    let easyAIPlayer = EasyAIPlayer()
+    let humanPlayerSquareType = Constants.playerOneSquareType
+    let easyAIPlayer = EasyAIPlayer(squareType: Constants.playerTwoSquareType)
     
     override func setUp() {
         super.setUp()
@@ -29,7 +30,7 @@ class EasyAIPlayerTests: XCTestCase {
             XCTFail()
             return
         }
-        let finalGameState = game.play(aiMove)
+        let finalGameState = game.play(aiMove, squareType: easyAIPlayer.squareType)
         XCTAssert(finalGameState == .nextMove)
     }
     
@@ -40,26 +41,26 @@ class EasyAIPlayerTests: XCTestCase {
             XCTFail()
             return
         }
-        let finalGameState = game.play(aiMove)
+        let finalGameState = game.play(aiMove, squareType: easyAIPlayer.squareType)
         XCTAssert(finalGameState == .gameBoardFull)
     }
     
     func testMakeMoveOnFullGameBoard() {
         almostFillBoard()
-        let _ = game.play(.bottomRight)
+        let _ = game.play(.bottomRight, squareType: humanPlayerSquareType)
         let move = easyAIPlayer.chooseMove(game.gameBoard)
         XCTAssertNil(move)
     }
     
     private func almostFillBoard() {
-        let _ = game.play(.centre)
-        let _ = game.play(.topLeft)
-        let _ = game.play(.top)
-        let _ = game.play(.left)
-        let _ = game.play(.bottomLeft)
-        let _ = game.play(.topRight)
-        let _ = game.play(.right)
-        let _ = game.play(.bottom)
+        let _ = game.play(.centre, squareType: humanPlayerSquareType)
+        let _ = game.play(.topLeft, squareType: easyAIPlayer.squareType)
+        let _ = game.play(.top, squareType: humanPlayerSquareType)
+        let _ = game.play(.left, squareType: easyAIPlayer.squareType)
+        let _ = game.play(.bottomLeft, squareType: humanPlayerSquareType)
+        let _ = game.play(.topRight, squareType: easyAIPlayer.squareType)
+        let _ = game.play(.right, squareType: humanPlayerSquareType)
+        let _ = game.play(.bottom, squareType: easyAIPlayer.squareType)
     }
     
 }

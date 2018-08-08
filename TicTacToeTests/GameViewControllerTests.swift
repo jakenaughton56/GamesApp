@@ -28,13 +28,13 @@ class GameViewControllerTests: XCTestCase {
     
     func testUpdatingBoardStateOnce() {
         gameViewController.play(.topLeft)
-        XCTAssert(gameViewController.game?.gameBoard.topLeft != .empty)
+        XCTAssert(gameViewController.game.gameBoard.topLeft != .empty)
     }
     
     func testUpdatingBoardStateTwice() {
         gameViewController.play(.topLeft)
         gameViewController.play(.bottom)
-        XCTAssert(gameViewController.game?.gameBoard.topLeft != .empty && gameViewController.game?.gameBoard.bottom != .empty)
+        XCTAssert(gameViewController.game.gameBoard.topLeft != .empty && gameViewController.game.gameBoard.bottom != .empty)
     }
     
     func testWinningMove() {
@@ -89,7 +89,7 @@ class GameViewControllerTests: XCTestCase {
             return
         }
         XCTAssert(finalGameState == .playerAlreadyWon)
-        XCTAssert(gameViewController.game?.gameBoard.bottomRight == .empty)
+        XCTAssert(gameViewController.game.gameBoard.bottomRight == .empty)
     }
     
     func testStartingNewGame() {
@@ -97,17 +97,9 @@ class GameViewControllerTests: XCTestCase {
         gameViewController.play(.topLeft)
         gameViewController.play(.bottom)
         gameViewController.play(.top)
-        guard let gameBoardStateOne = gameViewController.game?.gameBoard else {
-            XCTFail()
-            return
-        }
-        XCTAssertFalse(brain.isEmpty(gameBoardStateOne))
+        XCTAssertFalse(brain.isEmpty(gameViewController.game.gameBoard))
         gameViewController.newGame()
-        guard let gameBoardStateTwo = gameViewController.game?.gameBoard else {
-            XCTFail()
-            return
-        }
-        XCTAssertTrue(brain.isEmpty(gameBoardStateTwo))
+        XCTAssertTrue(brain.isEmpty(gameViewController.game.gameBoard))
     }
     
     func testInitialScores() {
@@ -240,7 +232,7 @@ class GameViewControllerTests: XCTestCase {
         gameViewController.gameMode = .easy
         gameViewController.play(.centre)
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Constants.computerThinkTime + 1) {
-            XCTAssert(self.gameViewController.game?.isItPlayerOnesTurn == true)
+            XCTAssert(self.gameViewController.isItPlayerOnesTurn == true)
         }
     }
     

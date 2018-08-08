@@ -13,6 +13,8 @@ class GameTests: XCTestCase {
     
     let brain = Brain()
     let humanGame = Game()
+    let playerOne = Constants.playerOneSquareType
+    let playerTwo = Constants.playerTwoSquareType
     
     override func setUp() {
         super.setUp()
@@ -24,87 +26,75 @@ class GameTests: XCTestCase {
         super.tearDown()
     }
     
-    func testIsPlayerOnesTurnBooleanChanges() {
-        XCTAssertTrue(humanGame.isItPlayerOnesTurn)
-        let _ = humanGame.play(.topLeft)
-        XCTAssertFalse(humanGame.isItPlayerOnesTurn)
-    }
-    
     func testUpdatingBoardStateOnce() {
-        let _ = humanGame.play(.topLeft)
+        let _ = humanGame.play(.topLeft, squareType: playerOne)
         XCTAssert(humanGame.gameBoard.topLeft != .empty)
     }
     
     func testUpdatingBoardStateTwice() {
-        let _ = humanGame.play(.topLeft)
-        let _ = humanGame.play(.bottomRight)
+        let _ = humanGame.play(.topLeft, squareType: playerOne)
+        let _ = humanGame.play(.bottomRight, squareType: playerTwo)
         XCTAssert(humanGame.gameBoard.topLeft != .empty)
         XCTAssert(humanGame.gameBoard.bottomRight != .empty)
     }
     
     func testEmptySquareUpdatingBoardStateOnce() {
-        let _ = humanGame.play(.topRight)
+        let _ = humanGame.play(.topRight, squareType: playerOne)
         XCTAssert(humanGame.gameBoard.topLeft == .empty)
     }
     
     func testGameBoardFull() {
         moveSevenTimes()
-        let _ = humanGame.play(.bottom)
-        let finalGameState = humanGame.play(.bottomRight)
+        let _ = humanGame.play(.bottom, squareType: playerTwo)
+        let finalGameState = humanGame.play(.bottomRight, squareType: playerOne)
         XCTAssert(finalGameState == .gameBoardFull)
     }
     
     func testGameBoardIsAlmostFull() {
         moveSevenTimes()
-        let finalGameState = humanGame.play(.bottom)
+        let finalGameState = humanGame.play(.bottom, squareType: playerTwo)
         XCTAssert(finalGameState == .nextMove)
     }
     
     func testMovingOnTakenSquare() {
-        let _ = humanGame.play(.topLeft)
-        let finalGameState = humanGame.play(.topLeft)
+        let _ = humanGame.play(.topLeft, squareType: playerOne)
+        let finalGameState = humanGame.play(.topLeft, squareType: playerTwo)
         XCTAssert(finalGameState == .squareTaken)
     }
     
     func testMovingAfterWin() {
-        let _ = humanGame.play(.topLeft)
-        let _ = humanGame.play(.bottomLeft)
-        let _ = humanGame.play(.top)
-        let _ = humanGame.play(.bottom)
-        let _ = humanGame.play(.topRight)
-        let finalGameState = humanGame.play(.bottomRight)
+        let _ = humanGame.play(.topLeft, squareType: playerOne)
+        let _ = humanGame.play(.top, squareType: playerOne)
+        let _ = humanGame.play(.topRight, squareType: playerOne)
+        let finalGameState = humanGame.play(.bottomRight, squareType: playerOne)
         XCTAssert(finalGameState == .playerAlreadyWon)
         XCTAssert(humanGame.gameBoard.bottomRight == .empty)
     }
     
     func testWinningMove() {
-        let _ = humanGame.play(.topLeft)
-        let _ = humanGame.play(.bottomLeft)
-        let _ = humanGame.play(.top)
-        let _ = humanGame.play(.bottom)
-        let finalGameState = humanGame.play(.topRight)
+        let _ = humanGame.play(.topLeft, squareType: playerOne)
+        let _ = humanGame.play(.top, squareType: playerOne)
+        let finalGameState = humanGame.play(.topRight, squareType: playerOne)
         XCTAssert(finalGameState == .playerWins)
     }
     
     func testStartingNewGame() {
-        let _ = humanGame.play(.topLeft)
-        let _ = humanGame.play(.bottomLeft)
-        let _ = humanGame.play(.top)
-        XCTAssertFalse(humanGame.isItPlayerOnesTurn)
+        let _ = humanGame.play(.topLeft, squareType: playerOne)
+        let _ = humanGame.play(.bottomLeft, squareType: playerOne)
+        let _ = humanGame.play(.top, squareType: playerOne)
         XCTAssertFalse(brain.isEmpty(humanGame.gameBoard))
         humanGame.startNewGame()
-        XCTAssertTrue(humanGame.isItPlayerOnesTurn)
         XCTAssertTrue(brain.isEmpty(humanGame.gameBoard))
     }
     
     private func moveSevenTimes() {
-        let _ = humanGame.play(.centre)
-        let _ = humanGame.play(.topLeft)
-        let _ = humanGame.play(.top)
-        let _ = humanGame.play(.left)
-        let _ = humanGame.play(.bottomLeft)
-        let _ = humanGame.play(.topRight)
-        let _ = humanGame.play(.right)
+        let _ = humanGame.play(.centre, squareType: playerOne)
+        let _ = humanGame.play(.topLeft, squareType: playerTwo)
+        let _ = humanGame.play(.top, squareType: playerOne)
+        let _ = humanGame.play(.left, squareType: playerTwo)
+        let _ = humanGame.play(.bottomLeft, squareType: playerOne)
+        let _ = humanGame.play(.topRight, squareType: playerTwo)
+        let _ = humanGame.play(.right, squareType: playerOne)
     }
     
 }

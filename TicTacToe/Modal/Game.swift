@@ -12,48 +12,39 @@ class Game {
     
     let brain: Brain
     var gameBoard: GameBoard
-    var isItPlayerOnesTurn: Bool
     
     init() {
         brain = Brain()
         gameBoard = GameBoard()
-        isItPlayerOnesTurn = true
     }
     
-    func play(_ move: Square) -> GameState {
-        let playerSquareType: SquareType
-        if isItPlayerOnesTurn {
-            playerSquareType = .cross
-        } else {
-            playerSquareType = .nought
-        }
+    func play(_ move: Square, squareType: SquareType) -> GameState {
         if !brain.isMoveValid(gameBoard: gameBoard, move: move) {
             return .squareTaken
         }
         if brain.hasPlayerWon(gameBoard) {
             return .playerAlreadyWon
         }
-        isItPlayerOnesTurn = !isItPlayerOnesTurn
         
         switch move {
         case .topLeft:
-            gameBoard.topLeft = playerSquareType
+            gameBoard.topLeft = squareType
         case .top:
-            gameBoard.top = playerSquareType
+            gameBoard.top = squareType
         case .topRight:
-            gameBoard.topRight = playerSquareType
+            gameBoard.topRight = squareType
         case .left:
-            gameBoard.left = playerSquareType
+            gameBoard.left = squareType
         case .centre:
-            gameBoard.centre = playerSquareType
+            gameBoard.centre = squareType
         case .right:
-            gameBoard.right = playerSquareType
+            gameBoard.right = squareType
         case .bottomLeft:
-            gameBoard.bottomLeft = playerSquareType
+            gameBoard.bottomLeft = squareType
         case .bottom:
-            gameBoard.bottom = playerSquareType
+            gameBoard.bottom = squareType
         case .bottomRight:
-            gameBoard.bottomRight = playerSquareType
+            gameBoard.bottomRight = squareType
         }
         if brain.hasPlayerWon(gameBoard) {
             return .playerWins
@@ -66,6 +57,5 @@ class Game {
     
     func startNewGame() {
         gameBoard = GameBoard()
-        isItPlayerOnesTurn = true
     }
 }
