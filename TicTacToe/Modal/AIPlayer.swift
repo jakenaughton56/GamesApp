@@ -30,4 +30,17 @@ class AIPlayer {
         }
         return squares[randomNumber]
     }
+    
+    func makeRandomMove(_ gameBoard: GameBoard) -> Square? {
+        let game = Game()
+        if brain.isBoardFull(gameBoard) { return nil }
+        game.gameBoard = gameBoard
+        var gameState: GameState
+        var move: Square
+        repeat {
+            move = chooseRandomSquareFrom(allBoardSqares)
+            gameState = game.play(move, squareType: squareType)
+        } while gameState == .squareTaken
+        return move
+    }
 }

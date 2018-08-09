@@ -124,15 +124,8 @@ class AdvancedAIPlayerTests: XCTestCase {
     }
     
     func testNoMovePlayedIfGameBoardIsFull() {
-        gameBoard.topLeft = .cross
-        gameBoard.top = .cross
-        gameBoard.bottomLeft = .cross
-        gameBoard.bottom = .cross
-        gameBoard.left = .nought
-        gameBoard.centre = .nought
-        gameBoard.right = .cross
-        gameBoard.topRight = .nought
-        gameBoard.bottomRight = .nought
+        gameBoard = GameBoardTests.almostFillBoard(playerOne: .cross, playerTwo: .nought)
+        gameBoard.bottomRight = .cross
         let move = advancedAIPlayer.checkForWin(gameBoard)
         XCTAssert(move.count == 0)
     }
