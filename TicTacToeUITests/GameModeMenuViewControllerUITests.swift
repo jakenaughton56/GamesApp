@@ -27,6 +27,8 @@ class GameModeMenuViewControllerUITests: XCTestCase {
         XCTAssertTrue(app.staticTexts[localized("Game Mode")].exists)
         XCTAssertTrue(app.buttons[localized("Human Vs Human")].exists)
         XCTAssertTrue(app.buttons[localized("Easy")].exists)
+        XCTAssertTrue(app.buttons[localized("Medium")].exists)
+        XCTAssertTrue(app.buttons[localized("Impossible")].exists)
     }
     
     func testTappingHumanVsHuman() {
@@ -39,6 +41,20 @@ class GameModeMenuViewControllerUITests: XCTestCase {
     func testTappingEasyMode() {
         let app = XCUIApplication()
         app.buttons["easyMode"].tap()
+        XCTAssertFalse(app.staticTexts[localized("Game Mode")].exists)
+        XCTAssertTrue(app.staticTexts[localized("Your Turn")].exists)
+    }
+    
+    func testTappingMediumMode() {
+        let app = XCUIApplication()
+        app.buttons["mediumMode"].tap()
+        XCTAssertFalse(app.staticTexts[localized("Game Mode")].exists)
+        XCTAssertTrue(app.staticTexts[localized("Your Turn")].exists)
+    }
+    
+    func testTappingImpossibleMode() {
+        let app = XCUIApplication()
+        app.buttons["impossibleMode"].tap()
         XCTAssertFalse(app.staticTexts[localized("Game Mode")].exists)
         XCTAssertTrue(app.staticTexts[localized("Your Turn")].exists)
     }

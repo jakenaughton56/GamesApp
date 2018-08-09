@@ -80,6 +80,38 @@ class Brain {
         }
     }
     
+    func getEmptySquares(_ gameBoard: GameBoard) -> [Square] {
+        var squares = [Square]()
+        if gameBoard.topLeft == .empty {
+            squares.append(.topLeft)
+        }
+        if gameBoard.top == .empty {
+            squares.append(.top)
+        }
+        if gameBoard.topRight == .empty {
+            squares.append(.topRight)
+        }
+        if gameBoard.left == .empty {
+            squares.append(.left)
+        }
+        if gameBoard.centre == .empty {
+            squares.append(.centre)
+        }
+        if gameBoard.right == .empty {
+            squares.append(.right)
+        }
+        if gameBoard.bottomLeft == .empty {
+            squares.append(.bottomLeft)
+        }
+        if gameBoard.bottom == .empty {
+            squares.append(.bottom)
+        }
+        if gameBoard.bottomRight == .empty {
+            squares.append(.bottomRight)
+        }
+        return squares
+    }
+    
     private func areSquaresTheSameType(squares: [SquareType]) -> Bool {
         var isCross = false
         var isNought = false

@@ -12,5 +12,5 @@ enum GameMode {
     case humanVsHuman
     case easy
     case medium
-    case hard
+    case impossible
 }

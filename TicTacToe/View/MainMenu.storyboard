@@ -125,8 +125,32 @@
                                             <action selector="gameModeTapped:" destination="dQP-Ev-2UY" eventType="touchUpInside" id="7bb-Re-MSv"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="70M-CP-Jh6" userLabel="Medium Mode">
+                                        <rect key="frame" x="50" y="248" width="294" height="94"/>
+                                        <color key="backgroundColor" red="0.18823529410000001" green="0.21960784310000001" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="mediumMode"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <state key="normal" title="Medium">
+                                            <color key="titleColor" red="1" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="gameModeTapped:" destination="dQP-Ev-2UY" eventType="touchUpInside" id="TDD-Mc-x3W"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gfR-aQ-ydr" userLabel="Impossible Mode">
+                                        <rect key="frame" x="50" y="362" width="294" height="94.333333333333314"/>
+                                        <color key="backgroundColor" red="0.18823529410000001" green="0.21960784310000001" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="impossibleMode"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <state key="normal" title="Impossible">
+                                            <color key="titleColor" red="1" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="gameModeTapped:" destination="dQP-Ev-2UY" eventType="touchUpInside" id="hKt-KA-UNB"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ulj-Lu-mDA" userLabel="Easy Mode">
-                                        <rect key="frame" x="50" y="134.33333333333331" width="294" height="94.333333333333314"/>
+                                        <rect key="frame" x="50" y="134.33333333333331" width="294" height="93.666666666666686"/>
                                         <color key="backgroundColor" red="0.18823529410000001" green="0.21960784310000001" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <accessibility key="accessibilityConfiguration" identifier="easyMode"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -140,12 +164,20 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="DuN-gB-wan" firstAttribute="top" secondItem="ESu-wG-spf" secondAttribute="top" constant="20" id="3xR-t3-cuj"/>
+                                    <constraint firstItem="70M-CP-Jh6" firstAttribute="height" secondItem="DuN-gB-wan" secondAttribute="height" id="6P9-kj-ocC"/>
                                     <constraint firstItem="DuN-gB-wan" firstAttribute="centerX" secondItem="ESu-wG-spf" secondAttribute="centerX" id="8BA-HH-Eas"/>
                                     <constraint firstItem="ulj-Lu-mDA" firstAttribute="width" secondItem="DuN-gB-wan" secondAttribute="width" id="9VQ-3U-O5L"/>
+                                    <constraint firstItem="70M-CP-Jh6" firstAttribute="leading" secondItem="ESu-wG-spf" secondAttribute="leading" constant="50" id="C4O-Gd-x3x"/>
+                                    <constraint firstItem="gfR-aQ-ydr" firstAttribute="top" secondItem="70M-CP-Jh6" secondAttribute="bottom" constant="20" id="Dfr-lL-j1i"/>
                                     <constraint firstItem="DuN-gB-wan" firstAttribute="height" secondItem="ESu-wG-spf" secondAttribute="height" multiplier="0.2" id="EeQ-Rh-zYz"/>
                                     <constraint firstItem="ulj-Lu-mDA" firstAttribute="top" secondItem="DuN-gB-wan" secondAttribute="bottom" constant="20" id="ErJ-Er-Uzp"/>
+                                    <constraint firstItem="gfR-aQ-ydr" firstAttribute="height" secondItem="DuN-gB-wan" secondAttribute="height" id="HpV-Pm-yQD"/>
+                                    <constraint firstItem="70M-CP-Jh6" firstAttribute="top" secondItem="ulj-Lu-mDA" secondAttribute="bottom" constant="20" id="Hr0-R2-zrd"/>
+                                    <constraint firstItem="70M-CP-Jh6" firstAttribute="width" secondItem="DuN-gB-wan" secondAttribute="width" id="NSM-KT-H2H"/>
                                     <constraint firstItem="ulj-Lu-mDA" firstAttribute="leading" secondItem="ESu-wG-spf" secondAttribute="leading" constant="50" id="St6-0Q-G5c"/>
+                                    <constraint firstItem="gfR-aQ-ydr" firstAttribute="width" secondItem="DuN-gB-wan" secondAttribute="width" id="efi-Rx-ymC"/>
                                     <constraint firstItem="DuN-gB-wan" firstAttribute="leading" secondItem="ESu-wG-spf" secondAttribute="leading" constant="50" id="irt-cE-4xu"/>
+                                    <constraint firstItem="gfR-aQ-ydr" firstAttribute="leading" secondItem="ESu-wG-spf" secondAttribute="leading" constant="50" id="qCd-Ey-Kun"/>
                                     <constraint firstItem="ulj-Lu-mDA" firstAttribute="height" secondItem="DuN-gB-wan" secondAttribute="height" id="tjj-WL-RgY"/>
                                 </constraints>
                             </view>
@@ -166,6 +198,8 @@
                     <connections>
                         <outlet property="easyModeButton" destination="ulj-Lu-mDA" id="r7K-Gr-IS5"/>
                         <outlet property="humanVsHumanButton" destination="DuN-gB-wan" id="1fe-cR-QZT"/>
+                        <outlet property="impossibleModeButton" destination="gfR-aQ-ydr" id="0uT-ga-X26"/>
+                        <outlet property="mediumModeButton" destination="70M-CP-Jh6" id="PTU-Jt-gqv"/>
                         <outlet property="menuTitleLabel" destination="zSy-Sx-sEv" id="TId-K0-9Qw"/>
                     </connections>
                 </viewController>

@@ -208,4 +208,35 @@ class BrainTests: XCTestCase {
         XCTAssertFalse(brain.isEmpty(gameBoard))
     }
     
+    func testGetEmptySquaresFromEmptyGameBoard() {
+        let squares = brain.getEmptySquares(gameBoard)
+        XCTAssert(squares.count == 9)
+    }
+    
+    func testGetEmptySquaresFromHalfFilledGameBoard() {
+        gameBoard.topLeft = .nought
+        gameBoard.bottomRight = .cross
+        gameBoard.top = .nought
+        gameBoard.bottomLeft = .cross
+        let squares = brain.getEmptySquares(gameBoard)
+        XCTAssert(squares.count == 5)
+    }
+    
+    func testGetEmptySquareFromAlmostFilledBoard() {
+        gameBoard = GameBoardTests.almostFillBoard(playerOne: .nought, playerTwo: .cross)
+        let squares = brain.getEmptySquares(gameBoard)
+        if squares.count != 1 {
+            XCTFail("Do not return any empty squares when game board had one")
+            return
+        }
+        XCTAssert(squares[0] == .bottomRight)
+    }
+    
+    func testGetEmptySquaresFromFullGameBoard() {
+        gameBoard = GameBoardTests.almostFillBoard(playerOne: .nought, playerTwo: .cross)
+        gameBoard.bottomRight = .nought
+        let squares = brain.getEmptySquares(gameBoard)
+        XCTAssert(squares.count == 0)
+    }
+    
 }

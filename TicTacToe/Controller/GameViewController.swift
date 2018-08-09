@@ -131,9 +131,11 @@ class GameViewController: UIViewController {
                 let computerPlayer = EasyAIPlayer(squareType: Constants.playerTwoSquareType)
                 computersMove(computerPlayer)
             case .medium:
-                break
-            case .hard:
-                break
+                let computerPlayer = MediumAIPlayer(squareType: Constants.playerTwoSquareType)
+                computersMove(computerPlayer)
+            case .impossible:
+                let computerPlayer = ImpossibleAIPlayer(squareType: Constants.playerTwoSquareType)
+                computersMove(computerPlayer)
             }
         }
     }

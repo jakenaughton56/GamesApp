@@ -236,4 +236,20 @@ class GameViewControllerTests: XCTestCase {
         }
     }
     
+    func testMediumGameMode() {
+        gameViewController.gameMode = .medium
+        gameViewController.play(.centre)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Constants.computerThinkTime + 1) {
+            XCTAssert(self.gameViewController.isItPlayerOnesTurn == true)
+        }
+    }
+    
+    func testImpossibleGameMode() {
+        gameViewController.gameMode = .impossible
+        gameViewController.play(.centre)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Constants.computerThinkTime + 1) {
+            XCTAssert(self.gameViewController.isItPlayerOnesTurn == true)
+        }
+    }
+    
 }
